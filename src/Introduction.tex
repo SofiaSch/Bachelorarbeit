@@ -1,0 +1,58 @@
+% --- Dokumentenklasse ---
+% scrartcl ist Teil von KOMA-Script, sehr gut für deutsche Texte
+\documentclass{scrartcl}
+
+% --- Wichtige Pakete ---
+% Für die korrekte Silbentrennung und deutsche Begriffe (z.B. "Abbildung")
+\usepackage[ngerman]{babel}
+% Für die richtige Darstellung von Umlauten im PDF (wichtig!)
+\usepackage[T1]{fontenc}
+% Definiert die Zeichenkodierung der .tex-Datei als UTF-8 (Standard heute)
+\usepackage[utf8]{inputenc}
+% Für mathematische Formeln
+\usepackage{amsmath}
+
+% --- Metadaten für das Dokument ---
+\title{Ein kleiner Test für meine Bachelorarbeit}
+\author{Sofia Schepers}
+\date{\today} % \today fügt das aktuelle Datum ein
+
+
+% --- Beginn des eigentlichen Dokuments ---
+\begin{document}
+
+% Titelseite erstellen
+    \maketitle
+
+% Ein erster Abschnitt
+
+
+    \section{Einleitung}
+
+    Hallo Welt! Dies ist mein erstes LaTeX-Dokument. Es ist gar nicht so schwer.
+    Man kann hier einfach Text schreiben und Umlaute wie ä, ö, ü und das ß problemlos verwenden.
+
+    Ein neuer Absatz wird durch eine Leerzeile im Code erzeugt.
+
+    \subsection{Ein paar Elemente}
+    Man kann auch ganz einfach Listen erstellen:
+    \begin{itemize}
+        \item Das ist der erste Punkt.
+        \item Und hier der zweite.
+        \item Man kann auch Formeln wie die berühmte Formel von Einstein, $E=mc^2$, direkt im Text einfügen.
+    \end{itemize}
+
+    Oder eine nummerierte Liste:
+    \begin{enumerate}
+        \item Erstens
+        \item Zweitens
+    \end{enumerate}
+
+% Ein zweiter Abschnitt
+
+
+    \section{Fazit}
+    Das Kompilieren hat geklappt. Jetzt kann die richtige Arbeit beginnen!
+
+% --- Ende des Dokuments ---
+\end{document}
