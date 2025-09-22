@@ -1,0 +1,105 @@
+%! Author = sofia_privat
+%! Date = 22.09.25
+
+% Preamble
+\documentclass[12pt, a4paper]{article}
+
+% Nötige Pakete
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel} % Für deutsche Spracheinstellungen
+\usepackage{graphicx}       % Um Bilder einzubinden
+\usepackage{amsmath}
+\usepackage[a4paper, margin=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{eso-pic}
+\usepackage{setspace}
+
+% Eigene Farbe für das TUM-Blau definieren
+\definecolor{TUMBlau}{HTML}{005293}
+
+\begin{document}
+
+\begin{titlepage}
+    \pagestyle{empty} % Keine Seitenzahl
+
+    % --- KOPFZEILE MIT TEXT LINKS UND LOGO RECHTS ---
+    \AddToShipoutPicture*{%
+      \AtPageUpperLeft{%
+        \put(40, -40){%
+          \parbox{\textwidth}{%
+            \footnotesize\color{TUMBlau}%
+            Chair for Strategy and Organization \\
+            TUM School of Management \\
+            Technical University of Munich
+          }%
+        }%
+      }%
+      \AtPageUpperRight{%
+        \put(510, 790){%
+          \includegraphics[width=2cm]{tum_logo.png}%
+        }%
+      }%
+    }
+
+    \centering % Ab hier soll alles zentriert sein
+
+    % --- LEHRSTUHL UND UNIVERSITÄT (Wird im Kopfbereich durch eso-pic ersetzt) ---
+    % Wir lassen hier etwas Platz, damit es nicht zu gedrängt aussieht
+    \vspace*{1cm}
+
+    % --- TITELBLOCK (JETZT IN EINER MINIPAGE GRUPPIERT) ---
+    \vfill % Schiebt den gesamten Titelblock nach unten
+
+    \centering
+
+    \begin{spacing}{1.3}
+    \huge\bfseries Der Einfluss der geplanten Verfahrensdauer auf Wettbewerb und KMU-Beteiligung
+    \end{spacing}
+
+    \begin{spacing}{1.3}
+    {\Large Eine vergleichende Analyse der öffentlichen Vergabe in Deutschland, Frankreich und Estland}
+    \end{spacing}
+
+    \vfill
+
+    % --- ART DER ARBEIT ---
+    {\Large Bachelorarbeit} \par
+    zur Erlangung des akademischen Grades \par
+    Bachelor of Science (B.Sc.) \par
+    an der Technical University of Munich\\[3cm]
+
+    % --- NEUES LAYOUT: PRÜFER LINKS, TURM RECHTS ---
+    \begin{minipage}[c]{0.5\textwidth} % Linke Spalte für Text, vertikal zentriert
+        \large
+        \raggedright % Text linksbündig
+
+        \textbf{Examiner:} \par
+        Prof. Dr. Isabell M. Welpe \par
+        Chair of Strategy and Organization \par
+        \vspace{1cm} % Abstand
+
+        \textbf{Supervised by:} \par
+        Sebastian Bauer \par
+        \vspace{1cm} % Abstand
+
+        \textbf{Submitted by:}\par
+        Sofia Schepers\par
+        Matriculation Number: 03773506
+    \end{minipage}% <--- Das % verhindert eine unerwünschte Leerstelle
+    \hfill % Flexibler Abstand zwischen den Spalten
+    \begin{minipage}[c]{0.4\textwidth} % Rechte Spalte für Bild, vertikal zentriert
+        \centering
+        \includegraphics[width=\textwidth]{Uhrenturm.jpg}
+    \end{minipage}
+
+    \vfill % Schiebt das Datum ganz nach unten
+
+    % --- ABGABEDATUM ---
+    {\large
+    \textbf{Submitted on:}\par
+    \today
+    }
+
+\end{titlepage}
+
+\end{document}
