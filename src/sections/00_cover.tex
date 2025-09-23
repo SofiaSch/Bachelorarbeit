@@ -1,0 +1,73 @@
+% =============================================================================
+% DECKBLATT (00_cover.tex) - Bereinigte Version
+% =============================================================================
+% Diese Datei enthält NUR den Inhalt der Titelseite.
+% Alle Pakete und Dokumenteneinstellungen werden in 'main.tex' geladen.
+
+\begin{titlepage}
+\begin{singlespacing} %
+
+    \pagestyle{empty} % Keine Seitenzahl auf dem Deckblatt
+    \vspace*{-2.5cm} % Leichte Anpassung für den oberen Rand
+
+    % --- KOPFZEILE MIT LEHRSTUHL-INFOS UND LOGO ---
+    \begin{minipage}[t]{0.7\textwidth}
+        \raggedright % Text linksbündig
+        \footnotesize\color{TUMBlau} % Farbe und Schriftgröße aus main.tex
+        Chair for Strategy and Organization \\
+        TUM School of Management \\
+        Technical University of Munich
+    \end{minipage}%
+    \hfill % Flexibler Abstand zwischen den Boxen
+    \begin{minipage}[t]{0.25\textwidth} % Etwas schmaler für besseren Look
+        \raggedleft % Logo rechtsbündig
+        \includegraphics[width=2.5cm]{images/tum_logo}
+    \end{minipage}
+
+    \vspace{2cm}
+
+    % --- TITELBLOCK ---
+    \centering % Zentriert den gesamten Block
+    \vfill % Schiebt den Titelblock vertikal in die Mitte
+    {\huge\bfseries Bürokratie in der öffentlichen Auftragsvergabe\par}
+    \vspace{0.5cm} % Sauberer Abstand zwischen Haupt- und Untertitel
+    {\Large Der Einfluss der Verfahrensdauer auf Wettbewerb und KMU-Beteiligung in Deutschland, Estland und Frankreich\par}
+    \vfill % Schiebt den Rest nach unten
+
+    % --- ART DER ARBEIT ---
+    {\Large Bachelorarbeit\par}
+    zur Erlangung des akademischen Grades\par
+    Bachelor of Science (B.Sc.)\par
+    an der Technischen Universität München\\[3cm]
+
+    % --- PRÜFER-BLOCK UND BILD ---
+    \begin{minipage}[c]{0.5\textwidth}
+        \large
+        \raggedright
+        \textbf{Prüfer:} \par
+        Prof. Dr. Isabell M. Welpe \par
+        Chair of Strategy and Organization \par
+        \vspace{1cm}
+        \textbf{Betreuer:} \par % Gängigere Bezeichnung als "Beaufsichtigt von"
+        Sebastian Bauer \par
+        \vspace{1cm}
+        \textbf{Eingereicht von:}\par
+        Sofia Schepers\par
+        Matrikelnummer: 03773506
+    \end{minipage}%
+    \hfill % Abstand
+    \begin{minipage}[c]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Uhrenturm}
+    \end{minipage}
+
+    \vfill % Flexibler Abstand zum Abgabedatum
+
+    % --- ABGABEDATUM ---
+    {\large
+    \textbf{Eingereicht am:}\par
+    \today
+    }
+
+\end{singlespacing}
+\end{titlepage}
