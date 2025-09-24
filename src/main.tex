@@ -22,11 +22,15 @@
     backend=biber,
     style=apa,
     sorting=nyt
-]{biblatex}                 % Für Zitationen und Literaturverzeichnis im APA-Stil
+]{biblatex}                 % FÜR ZITATIONEN UND LITERATURVERZEICHNIS (EINZIGES PAKET!)
 \usepackage{csquotes}
+% \bibliographystyle{apalike} % --- DIESE ZEILE ENTFERNEN ---
 \addbibresource{bibliothek.bib} % Verknüpfung zur Literaturdatenbank
 \usepackage[svgnames]{xcolor}
-\definecolor{TUMBlau}{HTML}{005293} %TUM Blau als Farbe definieren
+\definecolor{TUMBlau}{HTML}{005293}
+% \usepackage{natbib} % --- DIESE ZEILE ENTFERNEN ---
+
+\usepackage{hyperref}
 
 % --- HYPERLINKS (optional, aber nützlich für PDF) ---
 \usepackage{hyperref}
