@@ -11,17 +11,38 @@ In der Datenbank befindet sich die Daten von insgesamt 35 Gerichtsbarkeiten, dav
 
 Die Daten werden unter anderem im JSON Format zur Verfügung gestellt.
 Der Untersuchungszeitraum ist auf die Jahre von 2014 bis 2022 festgelegt.
-In 2014 wurde ein großer Schritt bezüglich des eurpäischen Vergaberechts gemacht, da dort neue EU-Vergaberichtlinien verabschiedet wurden.
+In 2014 wurde ein großer Schritt bezüglich des europäischen Vergaberechts gemacht, da dort neue EU-Vergaberichtlinien verabschiedet wurden.
 Diese zielen auf eine Vereinfachung der Verfahren und Stärkung der KMU-Beteiligung ab~\parencite{EU2014RL24}.
 Die Wahl für das Jahr 2022 beruht auf der Datenverfügbarkeit, da das neusten Daten für Frankreich aus dem Jahre 2022 sind.
 Die Analyse dieses Zeitraums ermöglicht die Analyse innerhalb des aktuellen rechtlichen Rahmens auf einer gemeinsamen Grundlage.
 
-\subsubsection{Stichprobenziehung und Länderauswahl}
-Deutschland Förderalismus~\parencite{DE_FOER}
+\subsubsection{Länderauswahl}
 
-Frankreich Zentralistisch~\parencite{FR_Zentr}
+Die Auswahl der Länder basiert auf dem "Most Different Systems Design" (MDSD).
+Ziel ist es dabei drei Länder, innerhalb des gemeinsamen rechtlichen Rahmens der EU, mit unterschiedlichen Verwaltungsstrukturen zu vergleichen.
 
-Estland Digital~\parencite{EST_Digital}
+Deutschland zählt als Vorreiter in der Umsetzung der neuen EU-Vergaberichtlinien und ist zudem hochgradig föderalistisch und regulierungsintensiv~\parencite{paper1}.
+Die dezentrale Vergabe erfolgt auf Bundes-, Landes- und Kommunalebene, was zu einer heterogenen Verwaltungslandschaft führt~\parencite{DE_FOER}. \n
+Frankreich dient als gegensatz mit einem historisch zentralem Staat~\parencite{FR_Zentr}.
+Die Vergaben sind größtenteils landesweit standardisiert
+Als drittes Land ist Estland deutlich kleiner als die beiden wirtschaftlich starken Länder Deutschland und Frankreich.
+Dennoch gilt Estland als digitaler Vorreiter, was die Digitalisierung in Europa betrifft~\parencite{EST_Digital}.
+
+Durch den gezielten Vergleich dieser unterschiedlichen Systeme wird es möglich, über eine reine Effektmessung hinauszugehen und zu einem tieferen, kausalen Verständnis darüber zu gelangen, warum und unter welchen Bedingungen die Dauer von Vergabeverfahren den Wettbewerb tatsächlich beeinflusst.
+
+\subsubsection{Stichprobenziehung}
+
+Um die Daten zu Analysieren müssen diese erst in ein Format gebracht werden, die sich leichter analysieren lässt.
+Mit einem Python-Skript sind wir durch alle Einträge pro Land gegangen und haben lediglich die Variablen extrahiert, die für unsere Forschungsfrage relevant sind.
+Für die weitere Analyse haben wir diese in eine csv Datei pro Land umgewandelt, die im nächsten Schritt bereinigt werden.
+
+Für die Bereinigung haben wir im ersten Schritt die Datumsspalte von einem Text in ein Datums-Format umgewandelt.
+Daraufhin wurden alle Einträge entfern, bei denen das Start- oder Enddatum fehlt, da diese für die Analyse unbrauchbar sind.
+Einige Einträge erhalten Logikfehler, bei denen das Enddatum vor dem Startdatum lag.
+Auch diese wurden aus den Dateien entfernt.
+Im Anschluss wurde nach den Einträgen gefiltert, die auch im wettbewerblichen Verfahren teilgenommen haben um direktvergaben auszuschließen.
+
+Durch diese Schritte haben wir die Datenmenge von x auf y reduziert um eine saubere und relevante Stichprobe zu erhalten.
 
 \subsection{Variablen und deren Operationalisierung}
 % Genaue Beschreibung, wie die UV, die AVs und die Kontrollvariablen gemessen wurden.
