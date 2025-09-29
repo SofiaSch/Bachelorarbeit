@@ -1,3 +1,4 @@
+\newpage
 \section{Methodik}
 
 \subsection{Foschungsdesign}
@@ -32,20 +33,22 @@ Durch den gezielten Vergleich dieser unterschiedlichen Systeme wird es möglich,
 
 \subsubsection{Stichprobenziehung}
 
-Um die Daten zu Analysieren müssen diese erst in ein Format gebracht werden, die sich leichter analysieren lässt.
-Mit einem Python-Skript sind wir durch alle Einträge pro Land gegangen und haben lediglich die Variablen extrahiert, die für unsere Forschungsfrage relevant sind.
-Für die weitere Analyse haben wir diese in eine csv Datei pro Land umgewandelt, die im nächsten Schritt bereinigt werden.
+Die Analyse der Daten erfordert zunächst deren Umwandlung in ein geeignetes Format, welches die Datenaufbereitung für die nachfolgende Analyse erleichtert.
+Mittels eines Python-Skripts erfolgte eine Analyse aller Einträge pro Land, bei der ausschließlich die Variablen extrahiert wurden, die für die Forschungsfrage von Relevanz sind.
+Im Rahmen der weiteren Analyse erfolgte eine Konvertierung der Daten in eine CSV-Datei pro Land.
+Daraufhin folgt die Bereinigung.
 
-Für die Bereinigung haben wir im ersten Schritt die Datumsspalte von einem Text in ein Datums-Format umgewandelt.
-Daraufhin wurden alle Einträge entfern, bei denen das Start- oder Enddatum fehlt, da diese für die Analyse unbrauchbar sind.
-Einige Einträge erhalten Logikfehler, bei denen das Enddatum vor dem Startdatum lag.
-Auch diese wurden aus den Dateien entfernt.
-Im Anschluss wurde nach den Einträgen gefiltert, die auch im wettbewerblichen Verfahren teilgenommen haben um direktvergaben auszuschließen.
+Im ersten Schritt der Bereinigung wurde die Datumsspalte von einem Text in ein Datums-Format konvertiert.
+Nachfolgend wurden sämtliche Einträge eliminiert, bei denen das Start- oder Enddatum nicht angegeben war, da diese für die Analyse nicht relevant waren.
+Bei einigen Einträgen treten Logikfehler auf, die sich dadurch äußern, dass das Enddatum vor dem Startdatum liegt.
+Auch diese wurden aus den betreffenden Dateien entfernt.
+Anschließend wurde eine Filterung der Einträge vorgenommen, die auch im wettbewerblichen Verfahren partizipiert haben, um eine Ausschließung von Direktvergaben zu gewährleisten.
 
-Durch diese Schritte haben wir die Datenmenge von x auf y reduziert um eine saubere und relevante Stichprobe zu erhalten.
+Durch die Implementierung dieser Schritte wurde eine Reduktion der Datenmenge von 1.547.352 Einträgen (Deutschland: 402.358, Frankreich: 1.097.001, Estland: 47.993) auf 675.400 Einträge (Deutschland: 303.770, Frankreich: 342.021, Estland: 29.609) durchgeführt, um eine konsistente und signifikante Stichprobe zu erhalten.
 
 \subsection{Variablen und deren Operationalisierung}
-% Genaue Beschreibung, wie die UV, die AVs und die Kontrollvariablen gemessen wurden.
+Als unabhängige Variable wird die geplante Dauer des Ausschreibungszeitraums in Tagen bemessen.
+Dabei wird die Differenz zwischen dem Datum der geplanten Angebotsabgabe (submissionDate) und dem Datum der Veröffentlichung der Ausschreibung (publicationDate) berechnet.
 
 \subsection{Statistische Auswertungsmethode}
 % Welche statistischen Verfahren wurden genutzt? (z.B. multiple Regressionsanalyse).
