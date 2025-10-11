@@ -4,7 +4,7 @@
 Um die Hypothesen zu überprüfen und somit die Forschungsfrage zu beantworten führen wir ein quantitatives, komparatives Ex-post-facto-Forschungsdesign durch.
 Die Hypothese wird mittels statistischer Regressionsanalysen auf Basis numerischer Daten getestet und ist somit quantitativ.
 Der gezielte Vergleich der drei Länder Deutschland, Frankreich und Estland nach dem \("\)Most Different System Design\("\) (MDSD) stellt eine komparative Analyse dar.
-Zudem beziehen wir uns in der Analyse auf bereits vergangene Vergabeverfahren die nicht experimentell manipuliert wurden, was das Design als Ex-post-facto-Ansatz ausweist.
+Zudem beziehen wir uns in der Analyse auf bereits vergangene Vergabeverfahren, die nicht experimentell manipuliert wurden, was das Design als Ex-post-facto-Ansatz ausweist.
 
 \subsection{Datensatz und Stichprobe}\label{subsec:datensatz-und-stichprobe}
 
@@ -23,14 +23,14 @@ Die Analyse dieses Zeitraums ermöglicht die Analyse innerhalb des aktuellen rec
 
 \subsubsection{Länderauswahl}
 
-Die Auswahl der Länder basiert auf dem "Most Different Systems Design" (MDSD).
+Die Auswahl der Länder basiert auf dem \("\)Most Different Systems Design\("\) (MDSD).
 Ziel ist es dabei drei Länder, innerhalb des gemeinsamen rechtlichen Rahmens der EU, mit unterschiedlichen Verwaltungsstrukturen zu vergleichen.
 
 Deutschland zählt als Vorreiter in der Umsetzung der neuen EU-Vergaberichtlinien und ist zudem hochgradig föderalistisch und regulierungsintensiv~\parencite{innovation_policy_PP}.
 Die dezentrale Vergabe erfolgt auf Bundes-, Landes- und Kommunalebene, was zu einer heterogenen Verwaltungslandschaft führt~\parencite{DE_FOER}.
 
 Frankreich dient als gegensatz mit einem historisch zentralem Staat~\parencite{FR_Zentr}.
-Die Vergaben sind größtenteils landesweit standardisiert
+Die Vergaben sind größtenteils landesweit standardisiert.
 Als drittes Land ist Estland deutlich kleiner als die beiden wirtschaftlich starken Länder Deutschland und Frankreich.
 Dennoch gilt Estland als digitaler Vorreiter, was die Digitalisierung in Europa betrifft~\parencite{EST_Digital}.
 
@@ -52,29 +52,40 @@ Anschließend wurde eine Filterung der Einträge vorgenommen, die auch im wettbe
 Durch die Implementierung dieser Schritte wurde eine Reduktion der Datenmenge von 1.547.352 Einträgen (Deutschland: 402.358, Frankreich: 1.097.001, Estland: 47.993) auf 675.400 Einträge (Deutschland: 303.770, Frankreich: 342.021, Estland: 29.609) durchgeführt, um eine konsistente und signifikante Stichprobe zu erhalten.
 
 \subsection{Variablen und Operationalisierung}\label{subsec:variablen-und-operationalisierung}
+
 Als unabhängige Variable wird die geplante Dauer des Ausschreibungszeitraums in Tagen bemessen.
 Dabei wird die Differenz zwischen dem Datum der geplanten Angebotsabgabe (endDate) und dem Datum der Veröffentlichung der Ausschreibung (publicationDate) berechnet.
 
 Für unsere Analyse brauchen wir zwei abhängige Variablen.
 Die erste beschreibt die Wettbewerbsintensität und wird direkt durch die absolute Anzahl der eingegangenen Gebote (total\_bids) pro Ausschreibung gemessen.
 Die zweite abhängige Variable beschreibt die KMU-Beteiligung.
-Diese wird nicht, wie bei der Wettbewerbsintensität in absoluten Zahlen gemessen sondern als prozentualer Anteil der Gesamtgebote.
+Diese wird nicht, wie bei der Wettbewerbsintensität in absoluten Zahlen gemessen, sondern als prozentualer Anteil der Gesamtgebote.
 Dafür rechnen wir Anzahl der KMU-Gebote (sme\_bids) durch die Gesamtzahl der Gebote (total\_bids).
-Dadurch, dass wir hier den Anteil berechnen und nicht die Absolute Zahl können wir messen, ob Kleine und Mittelständige Unternehmen tatsächlich überproportional von längeren Verfahrensdauern betroffen sind oder nicht.
+Dadurch, dass wir hier den Anteil berechnen und nicht die absolute Zahl können wir messen, ob kleine und mittelständische Unternehmen tatsächlich überproportional von längeren Verfahrensdauern betroffen sind oder nicht.
 
-Für eine Robuste Analyse führen wir weitere Analysen durch mit ausgewählten Kontrollvariablen.
+Für eine robuste Analyse führen wir weitere Analysen durch mit ausgewählten Kontrollvariablen.
 Zum einen analysieren wir, ob der Auftragswert (tender\_value)
 
 \textcolor{red}{
 Um den Netto-Effekt der Verfahrensdauer auf die Wettbewerbsintensität zu isolieren und Verzerrungen durch ausgelassene Variablen (Omitted Variable Bias) zu minimieren, werden in den Regressionsmodellen mehrere Kontrollvariablen berücksichtigt.
 Diese Variablen wurden auf Basis der Fachliteratur zur öffentlichen Auftragsvergabe ausgewählt, da anzunehmen ist, dass sie sowohl mit der Dauer des Ausschreibungszeitraums als auch mit der Anzahl der eingegangenen Gebote korrelieren.
 \begin{itemize}
-\item Geschätzter Auftragswert (tender\_value): Der finanzielle Umfang einer Ausschreibung ist eine der wichtigsten Determinanten für das Bieterverhalten. Es ist davon auszugehen, dass Aufträge mit einem höheren Wert längere Angebotsfristen erhalten, um komplexere Angebote zu ermöglichen. Gleichzeitig beeinflusst der Wert die Attraktivität der Ausschreibung und damit die Anzahl der Bieter. Um eine Scheinkorrelation zwischen Dauer und Bieteranzahl zu vermeiden, wird der logarithmierte Auftragswert in das Modell aufgenommen.
-\item Verfahrensart (procurement\_method): Die Art des Vergabeverfahrens hat einen direkten strukturellen Einfluss auf den Wettbewerb. Offene Verfahren (open) sind definitionsgemäß für eine unbegrenzte Anzahl von Unternehmen zugänglich und weisen oft andere Fristen auf als selektive Verfahren (selective), bei denen der Bieterkreis eingeschränkt ist. Die Kontrolle für die Verfahrensart ist daher notwendig, um diese institutionellen Rahmenbedingungen zu berücksichtigen.
-\item Art der Leistung (procurement\_category): Die Wettbewerbsdynamik unterscheidet sich erheblich zwischen der Vergabe von Lieferleistungen (goods), Dienstleistungen (services) und Bauleistungen (works). Jeder dieser Sektoren hat eine eigene Marktstruktur, Anbieterdichte und typische Komplexität, was sich sowohl auf die übliche Dauer von Ausschreibungen als auch auf die zu erwartende Anzahl von Bietern auswirkt.
-\item Jahr der Ausschreibung (year): Um für zeitliche Trends wie makroökonomische Zyklen, technologische Entwicklungen oder die schrittweise Wirkung von Gesetzesreformen (z.B. der EU-Vergaberichtlinien von 2014) zu kontrollieren, wird das Jahr der Veröffentlichung als kategoriale Variable in die Analyse einbezogen.
-\item Land (country): Neben der Untersuchung von länderspezifischen Effekten durch Interaktionsterme dient die Ländervariable als Kontrollvariable für grundlegende, zeitinvariante Unterschiede zwischen den nationalen Beschaffungsmärkten. Faktoren wie die Wirtschaftsgröße, die Anzahl potenzieller Bieter oder die administrative Kultur können zu systematisch unterschiedlichen Wettbewerbsniveaus in Deutschland, Frankreich und Estland führen.
-\item Vergabekriterien (award\_criteria): Die Kriterien für den Zuschlag beeinflussen den Aufwand für die Angebotserstellung. Eine Vergabe, die ausschließlich auf dem niedrigsten Preis basiert (priceOnly), ist für Bieter einfacher zu kalkulieren als eine, die auf dem wirtschaftlich vorteilhaftesten Angebot mit bewerteten Kriterien (ratedCriteria) beruht. Letztere erfordert komplexere Angebote, was längere Fristen rechtfertigen und gleichzeitig die Bieterzahl beeinflussen kann. Diese Variable wird daher in einer Robustheitsanalyse berücksichtigt, um die Stabilität der Ergebnisse zu prüfen.
+\item Geschätzter Auftragswert (tender\_value): Der finanzielle Umfang einer Ausschreibung ist eine der wichtigsten Determinanten für das Bieterverhalten.
+Es ist davon auszugehen, dass Aufträge mit einem höheren Wert längere Angebotsfristen erhalten, um komplexere Angebote zu ermöglichen.
+Gleichzeitig beeinflusst der Wert die Attraktivität der Ausschreibung und damit die Anzahl der Bieter.
+Um eine Scheinkorrelation zwischen Dauer und Bieteranzahl zu vermeiden, wird der logarithmierte Auftragswert in das Modell aufgenommen.
+\item Verfahrensart (procurement\_method): Die Art des Vergabeverfahrens hat einen direkten strukturellen Einfluss auf den Wettbewerb.
+Offene Verfahren (open) sind definitionsgemäß für eine unbegrenzte Anzahl von Unternehmen zugänglich und weisen oft andere Fristen auf als selektive Verfahren (selective), bei denen der Bieterkreis eingeschränkt ist.
+Die Kontrolle für die Verfahrensart ist daher notwendig, um diese institutionellen Rahmenbedingungen zu berücksichtigen.
+\item Art der Leistung (procurement\_category): Die Wettbewerbsdynamik unterscheidet sich erheblich zwischen der Vergabe von Lieferleistungen (goods), Dienstleistungen (services) und Bauleistungen (works).
+Jeder dieser Sektoren hat eine eigene Marktstruktur, Anbieterdichte und typische Komplexität, was sich sowohl auf die übliche Dauer von Ausschreibungen als auch auf die zu erwartende Anzahl von Bietern auswirkt.
+\item Jahr der Ausschreibung (year): Um für zeitliche Trends wie makroökonomische Zyklen, technologische Entwicklungen oder die schrittweise Wirkung von Gesetzesreformen (z.B.\ der EU-Vergaberichtlinien von 2014) zu kontrollieren, wird das Jahr der Veröffentlichung als kategoriale Variable in die Analyse einbezogen.
+\item Land (country): Neben der Untersuchung von länderspezifischen Effekten durch Interaktionsterme dient die Länder variable als Kontrollvariable für grundlegende, zeitinvariante Unterschiede zwischen den nationalen Beschaffungsmärkten.
+Faktoren wie die Wirtschaftsgröße, die Anzahl potenzieller Bieter oder die administrative Kultur können zu systematisch unterschiedlichen Wettbewerbsniveaus in Deutschland, Frankreich und Estland führen.
+\item Vergabekriterien (award\_criteria): Die Kriterien für den Zuschlag beeinflussen den Aufwand für die Angebotserstellung.
+Eine Vergabe, die ausschließlich auf dem niedrigsten Preis basiert (priceOnly), ist für Bieter einfacher zu kalkulieren als eine, die auf dem wirtschaftlich vorteilhaftesten Angebot mit bewerteten Kriterien (ratedCriteria) beruht.
+Letztere erfordert komplexere Angebote, was längere Fristen rechtfertigen und gleichzeitig die Bieterzahl beeinflussen kann.
+Diese Variable wird daher in einer Robustheitsanalyse berücksichtigt, um die Stabilität der Ergebnisse zu prüfen.
 \end{itemize}
 }
 
