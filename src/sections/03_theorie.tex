@@ -173,47 +173,46 @@ Dieses hohe Maß an institutionalisierter Effizienz und der Digitalisierung posi
 \subsubsection{Zusammenfassender Vergleich und Implikationen für den Wettbewerb}
 
 
-
-\begin{table}[htbp] % [htbp] = here, top, bottom, page (gute Platzierungsoption)
-\centering % Zentriert die Tabelle auf der Seite
-
-% \caption{} ist der Titel der Tabelle
+\begin{table}[htbp]
+\centering
 \caption{Administrativ-struktureller Ländervergleich}
-
-% \label{} ist wichtig, damit du im Text mit \ref{tab:admin_vergleich} darauf verweisen kannst
 \label{tab:admin_vergleich}
 
-\resizebox{\textwidth}{!}{
-\begin{tabular}{l|l|l|l}
+\renewcommand{\arraystretch}{1.5} % Erhöht den Zeilenabstand für bessere Lesbarkeit
 
-
-\hline
+% --- ANGEPASSTE SPALTENDEFINITION ---
+% 1. Spalte: >{\raggedright\arraybackslash}p{3.5cm}
+%    -> Linksbündig OHNE Blocksatz, feste Breite von 3.5cm, mit Umbruch
+% 2.-4. Spalte: >{\centering\arraybackslash}X
+%    -> Zentrierter Text, mit automatischem Umbruch, teilen sich den Rest
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.5cm} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X @{}}
+\toprule
 \textbf{Merkmal} & \textbf{Deutschland} & \textbf{Frankreich} & \textbf{Estland} \\
-\hline
+\midrule
 
-\textbf{Administrative Grundstruktur} &
-Föderal \& dezentral \cite{aufgaben_foederalstaat} &
-Zentralistischer Einheitsstaat \cite{unterschied_FR_DE} &
-"Digital-by-Default"-Staat \cite{estonia_powerhouse} \\
+Administrative Grundstruktur &
+Föderal \& dezentral \tabcite{aufgaben_foederalstaat} &
+Zentralistischer Einheitsstaat \tabcite{unterschied_FR_DE} &
+"Digital-by-Default"-Staat \tabcite{estonia_powerhouse} \\
 
-\textbf{Einheitlichkeit der Regeln (Unterschwelle)} &
-Heterogen (je nach Land/Kommune) \cite{aufgaben_foederalstaat} &
-Landesweit einheitlich (Code de la commande publique) \cite{GovTech_FR} &
-Landesweit einheitlich \& digital integriert \cite{estonia_digital} \\
+Einheitlichkeit der Regeln (Unterschwelle) &
+Heterogen (je nach Land/Kommune) \tabcite{aufgaben_foederalstaat} &
+Landesweit einheitlich (Code de la commande publique) \tabcite{GovTech_FR} &
+Landesweit einheitlich \& digital integriert \tabcite{estonia_digital} \\
 
-\textbf{Bündelung \& Effizienz-Prinzipien} &
-Fragmentiert (ca. 30.000 Stellen) \cite{buerokratie_DE} &
-Zentral gebündelt (UGAP) \cite{GovTech_FR} &
-Systemisch (Gesetzl. "Once-Only"-Prinzip) \cite{estonia_powerhouse} \\
+Bündelung \& Effizienz-Prinzipien &
+Fragmentiert (ca. 30.000 Stellen) \tabcite{buerokratie_DE} &
+Zentral gebündelt (UGAP) \tabcite{GovTech_FR} &
+Systemisch (Gesetzl. \("\)Once-Only\("\)-Prinzip) \tabcite{estonia_powerhouse} \\
 
-\textbf{Digitale Nutzung (Bürger/Unternehmen)} &
-Gering (55\% Nutzer) \cite{GovTech_FR} &
-Hoch (87\% Nutzer) \cite{GovTech_FR} &
-Vollständig (99\% e-ID) \cite{estonia_powerhouse} \\
-\hline
-\end{tabular}
-}
+Digitale Nutzung (Bürger/ Unternehmen) &
+Gering (55\% Nutzer) \tabcite{GovTech_FR} &
+Hoch (87\% Nutzer) \tabcite{GovTech_FR} &
+Vollständig (99\% e-ID) \tabcite{estonia_powerhouse} \\
+\bottomrule
+\end{tabularx}
 
-\textit{Quelle: Eigene Darstellung basierend auf den zitierten Quellen.}\label{tab:table}\label{tab:table2}
+\renewcommand{\arraystretch}{1.0} % Setzt den Zeilenabstand für den Rest des Dokuments zurück
 
+\textit{Quelle: Eigene Darstellung basierend auf den zitierten Quellen.}
 \end{table}

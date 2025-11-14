@@ -18,6 +18,18 @@
 % --- PAKETE FÜR INHALTE ---
 \usepackage{graphicx}       % Für Bilder
 \usepackage{booktabs}       % Für schönere Tabellen (wichtig für APA)
+\usepackage{tabularx}
+\usepackage{array}
+
+% --- \tabcite Befehl ---
+\definecolor{meingrau}{gray}{0.6} % Definiert ein mittleres Grau
+
+% \tabcite: Erzeugt Zeilenumbruch, startet eine lokale Gruppe {},
+% schaltet Schriftgröße auf \footnotesize und Farbe auf \meingrau,
+% und ruft \parencite auf (was (Autor, Jahr) erzeugt).
+\newcommand{\tabcite}[1]{\newline {\footnotesize \color{meingrau}\parencite{#1}}}
+% --- Ende Befehl ---
+
 \usepackage[
     backend=biber,
     style=apa,
@@ -26,7 +38,6 @@
 \usepackage{csquotes}
 
 \addbibresource{bibliothek.bib} % Verknüpfung zur Literaturdatenbank
-\usepackage[svgnames]{xcolor}
 \definecolor{TUMBlau}{HTML}{005293}
 
 
