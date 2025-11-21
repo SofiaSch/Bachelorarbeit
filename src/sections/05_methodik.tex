@@ -45,17 +45,48 @@ Durch den gezielten Vergleich dieser unterschiedlichen Systeme wird es möglich,
 \subsubsection{Stichprobenziehung}
 
 Die Analyse der Daten erfordert zunächst deren Umwandlung in ein geeignetes Format, welches die Datenaufbereitung für die nachfolgende Analyse erleichtert.
-Mittels eines Python-Skripts erfolgte eine Analyse aller Einträge pro Land, bei der ausschließlich die Variablen extrahiert wurden, die für die Forschungsfrage von Relevanz sind.
-Im Rahmen der weiteren Analyse erfolgte eine Konvertierung der Daten in eine CSV-Datei pro Land.
+Mittels eines Python-Skripts erfolgte eine Aufbereitung aller Einträge pro Land, bei der ausschließlich die Variablen extrahiert wurden, die für die Forschungsfrage von Relevanz sind.
+Im Rahmen der weiteren Aufbereitung erfolgte eine Konvertierung der Daten in eine CSV-Datei pro Land.
 Daraufhin folgt die Bereinigung.
 
 Im ersten Schritt der Bereinigung wurde die Datumsspalte von einem Text in ein Datums-Format konvertiert.
-Nachfolgend wurden sämtliche Einträge eliminiert, bei denen das Start- oder Enddatum nicht angegeben war, da diese für die Analyse nicht relevant waren.
+Nachfolgend wurden sämtliche Einträge eliminiert, bei denen das Start- oder Enddatum nicht angegeben war, da diese für die Analyse nicht relevant sind.
 Bei einigen Einträgen treten Logikfehler auf, die sich dadurch äußern, dass das Enddatum vor dem Startdatum liegt.
 Auch diese wurden aus den betreffenden Dateien entfernt.
 Anschließend wurde eine Filterung der Einträge vorgenommen, die auch im wettbewerblichen Verfahren partizipiert haben, um eine Ausschließung von Direktvergaben zu gewährleisten.
 
-Durch die Implementierung dieser Schritte wurde eine Reduktion der Datenmenge von 1.547.352 Einträgen (Deutschland: 402.358, Frankreich: 1.097.001, Estland: 47.993) auf 675.400 Einträge (Deutschland: 303.770, Frankreich: 342.021, Estland: 29.609) durchgeführt, um eine konsistente und signifikante Stichprobe zu erhalten.
+Durch die Implementierung dieser Schritte wurde eine Reduktion der Datenmenge von 1.547.352 Einträgen (Deutschland: 402.358, Frankreich: 1.097.001, Estland: 47.993) auf 675.400 Einträge durchgeführt, um eine konsistente und signifikante Stichprobe zu erhalten.
+
+Für die Durchführung der multivariaten Regressionsanalyse ist eine weitere Einschränkung der Stichprobe auf vollständige dokumentierte Fälle erforderlich.
+Den größten Anteil am Datenverlust verursachen fehlende Angaben zum Auftragswerts (tender\_value) sowie zur Verfahrensart (procurement\_method).
+Dies resultiert in einer finalen Stichprobe von 151.424 vollständig beobachteten Vergabeverfahren, die die Grundlage für die nachfolgenden Modellschätzungen bilden.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Übersicht der Stichprobenreduktion durch Bereinigung fehlender Werte}
+    \label{tab:stichprobenreduktion}
+    \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} rrr}
+        \toprule
+        \textbf{Land} & \textbf{Bereinigte Rohdaten} & \textbf{Finale Stichprobe} & \textbf{Reduktion} \\
+         & ($N_{initial}$) & ($N_{final}$) & (\%) \\
+        \midrule
+        Deutschland & 303.770 & 55.587 & 81,7\,\% \\
+        Frankreich  & 342.021 & 91.149 & 73,3\,\% \\
+        Estland     & 29.609  & 3.404  & 88,5\,\% \\
+        \midrule
+        \textbf{Gesamt} & \textbf{675.400} & \textbf{150.140} & \textbf{77,8\,\%} \\
+        \bottomrule
+    \end{tabular*}
+
+    \vspace{0.2cm} % Kleiner Abstand zur Anmerkung
+
+    \parbox{0.85\textwidth}{\small \textit{Anmerkung:} Die Reduktion resultiert primär aus fehlenden Angaben zum Auftragswert (\textit{tender\_value}) sowie zur Verfahrensart, welche zwingende Voraussetzungen für die multivariate Analyse sind.}
+\end{table}
+
+Die Tabelle fasst den Prozess der Stichprobenziehung für die multivariate Analyse zusammen.
+Der vergleichsweise hohe Ausschluss von Fällen in Estland (88,5\%) und Deutschland (81,7\%) ist auf die häufig fehlende Erfassung des exakten Auftragswerts in den Quelldaten zurückzuführen.
+Dennoch verbleibt für alle drei Länder eine Stichprobengröße, die statistisch hochsignifikante Schätzungen erlaubt.
+Durch diesen strengen Filterprozess wird sichergestellt, dass die Analyse ausschließlich auf validen und vollständig dokumentierten Vergabeverfahren beruht.
 
 \subsection{Variablen und Operationalisierung}\label{subsec:variablen-und-operationalisierung}
 
@@ -78,7 +109,32 @@ Da dieser Anteil nur berechnet werden kann, wenn mindestens ein Gebot vorliegt, 
 
 Um sicherzustellen, dass der gemessene Effekt tatsächlich auf die Verfahrensdauer zurückzuführen ist und nicht durch Drittfaktoren verzerrt wird, werden mehrere Kontrollvariablen in das Modell aufgenommen.
 
+\textbf{Auftragswert (tender\_value):}
+Der geschätzte Auftragswert gilt als zentraler Indikator für die Attraktivität eines Auftrags.
+Höhere Werte signalisieren größere Gewinnchancen, gehen jedoch oft mit komplexeren Anforderungen einher.
+Ökonomische Variablen wie Auftragswerte weisen typischerweise eine starke Rechtsschiefe (positive Skewness) auf.
+Dies bedeutet, dass die Verteilung nicht symmetrisch ist, sondern eine Häufung bei kleineren Werten zeigt, während wenige extrem hohe Werte („Ausreißer“ nach oben) die Verteilung verzerren.
+In regressionsanalytischen Modellen können solche Extremwerte die Schätzergebnisse unverhältnismäßig stark beeinflussen und die Annahme der Normalverteilung der Residuen verletzen.
+Um diese Schiefe zu korrigieren, wird der Auftragswert logarithmiert ($\ln(\text{Wert})$).
+Durch diese Transformation werden die Abstände zwischen großen Werten gestaucht, wodurch sich die Verteilung einer Normalverteilung annähert und robustere Schätzergebnisse ermöglicht werden.
+Zusätzlich wurde die Variable für die Analyse z-standardisiert.
+
+\textbf{Zeitliche Effekte (year):}
+Der Untersuchungszeitraum von 2014 bis 2022 umfasst ökonomisch und gesellschaftlich volatile Phasen, wie etwa die COVID-19-Pandemie oder Phasen erhöhter Inflation.
+Solche makroökonomischen Ereignisse können die generelle Bereitschaft von Unternehmen zur Angebotsabgabe beeinflussen, unabhängig von den spezifischen Eigenschaften einer Ausschreibung~\parencite{Vergabestatistik}.
+Um diese zeitlichen Schwankungen statistisch zu isolieren, wird das Jahr der Ausschreibung als kategoriale Variable in das Modell aufgenommen (Time Fixed Effects).
+Dies bewirkt, dass das Modell primär Ausschreibungen innerhalb desselben Jahres miteinander vergleicht.
+Globale Konjunktureffekte, die alle Ausschreibungen eines Jahres gleichermaßen betreffen, werden so konstant gehalten und verzerren nicht den gemessenen Effekt der Verfahrensdauer.
+
+\textbf{Verfahrensmerkmale:}
+Zusätzlich wird für die Art des Verfahrens (procurement\_method) kontrolliert, da offene Verfahren (open procedure) strukturell eine höhere Anzahl an Bietern zulassen als beschränkte oder verhandlungsbasierte Verfahren.
+Ebenso wird die Art der Leistung (procurement\_category) berücksichtigt (z.B.\ Bauleistung vs.\ Dienstleistung vs.\ Lieferleistung), da sich branchenspezifische Marktstrukturen und Wettbewerbsintensitäten unterscheiden können.
+
 
 
 \subsection{Statistische Auswertungsmethode}\label{subsec:statistische-auswertungsmethode}
 % Welche statistischen Verfahren wurden genutzt? (z.B. multiple Regressionsanalyse).
+
+Die Datenaufbereitung und statistische Analyse wurden in der Programmiersprache Python (Version 3.12) durchgeführt.
+Für die deskriptive Statistik und Datenmanipulation wurde die Bibliothek pandas verwendet, während die Schätzung der Regressionsmodelle (ZINB und GLM) mittels statsmodels erfolgte.
+Die Visualisierung der Ergebnisse wurde mit matplotlib und seaborn erstellt.
