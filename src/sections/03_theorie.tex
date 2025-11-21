@@ -198,7 +198,7 @@ Aus diesen theoretischen Vorüberlegungen leitet sich die dritte Hypothese ab.
 \renewcommand{\arraystretch}{1.5} % Erhöht den Zeilenabstand für bessere Lesbarkeit
 
 % --- SPALTENDEFINITION ---
-\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.5cm} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X @{}}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
 \toprule
 \textbf{Merkmal} & \textbf{Deutschland} & \textbf{Frankreich} & \textbf{Estland} \\
 \midrule
@@ -206,7 +206,7 @@ Aus diesen theoretischen Vorüberlegungen leitet sich die dritte Hypothese ab.
 Administrative Grundstruktur &
 Föderal \& dezentral \tabcite{aufgaben_foederalstaat} &
 Zentralistischer Einheitsstaat \tabcite{unterschied_FR_DE} &
-"Digital-by-Default"-Staat \tabcite{estonia_powerhouse} \\
+\enquote{Digital-by-Default}-Staat \tabcite{estonia_powerhouse} \\
 
 Einheitlichkeit der Regeln (Unterschwelle) &
 Heterogen (je nach Land/Kommune) \tabcite{aufgaben_foederalstaat} &
@@ -216,7 +216,7 @@ Landesweit einheitlich \& digital integriert \tabcite{estonia_digital} \\
 Bündelung \& Effizienz-Prinzipien &
 Fragmentiert (ca. 30.000 Stellen) \tabcite{buerokratie_DE} &
 Zentral gebündelt (UGAP) \tabcite{GovTech_FR} &
-Systemisch (Gesetzl. \("\)Once-Only\("\)-Prinzip) \tabcite{estonia_powerhouse} \\
+Systemisch (Gesetzl. \enquote{Once-Only}-Prinzip) \tabcite{estonia_powerhouse} \\
 
 Digitale Nutzung (Bürger/ Unternehmen) &
 Gering (55\% Nutzer) \tabcite{GovTech_FR} &
@@ -225,7 +225,10 @@ Vollständig (99\% e-ID) \tabcite{estonia_powerhouse} \\
 \bottomrule
 \end{tabularx}
 
-\renewcommand{\arraystretch}{1.0} % Setzt den Zeilenabstand für den Rest des Dokuments zurück
+% --- QUELLE / ANMERKUNG (APA-Stil: Linksbündig unter der Tabelle) ---
+\vspace{1mm} % Kleiner Abstand
+\begin{minipage}{\textwidth} % Hilft, den Text genau so breit wie die Tabelle zu halten
+    \footnotesize \textit{Anmerkung.} Eigene Darstellung basierend auf den zitierten Quellen.
+\end{minipage}
 
-\textit{Quelle: Eigene Darstellung basierend auf den zitierten Quellen.}
 \end{table}

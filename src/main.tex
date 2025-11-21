@@ -20,14 +20,32 @@
 \usepackage{booktabs}       % Für schönere Tabellen (wichtig für APA)
 \usepackage{tabularx}
 \usepackage{array}
+\usepackage{xcolor}
 
 % --- \tabcite Befehl ---
 \definecolor{meingrau}{gray}{0.6} % Definiert ein mittleres Grau
 
-% \tabcite: Erzeugt Zeilenumbruch, startet eine lokale Gruppe {},
-% schaltet Schriftgröße auf \footnotesize und Farbe auf \meingrau,
-% und ruft \parencite auf (was (Autor, Jahr) erzeugt).
-\newcommand{\tabcite}[1]{\newline {\footnotesize \color{meingrau}\parencite{#1}}}
+\usepackage{caption}
+\captionsetup[table]{
+    format=plain,
+    singlelinecheck=false,      % Erzwingt Links-Bündigkeit auch bei kurzen Titeln
+    justification=raggedright,  % Links ausgerichtet
+    labelsep=newline,           % Zeilenumbruch nach "Tabelle 1"
+    font={stretch=1},           % Zeilenabstand normal in der Caption
+    labelfont=bf,               % "Tabelle 1" fett
+    textfont=it                 % Titeltext kursiv
+}
+
+% \tabcite: Erzeugt Zeilenumbruch, setzt Farbe und Link-Farbe auf Grau
+\newcommand{\tabcite}[1]{%
+    \newline
+    {%
+        \footnotesize           % Schriftgröße klein
+        \color{meingrau}        % Färbt Klammern und Kommas
+        \hypersetup{citecolor=meingrau} % WICHTIG: Färbt den Link (die Jahreszahl)
+        \parencite{#1}%
+    }%
+}
 % --- Ende Befehl ---
 
 \usepackage[
