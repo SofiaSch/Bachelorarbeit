@@ -109,7 +109,7 @@ Da dieser Anteil nur berechnet werden kann, wenn mindestens ein Gebot vorliegt, 
 
 Um sicherzustellen, dass der gemessene Effekt tatsächlich auf die Verfahrensdauer zurückzuführen ist und nicht durch Drittfaktoren verzerrt wird, werden mehrere Kontrollvariablen in das Modell aufgenommen.
 
-\textbf{Auftragswert (tender\_value):}
+Auftragswert (tender\_value):
 Der geschätzte Auftragswert gilt als zentraler Indikator für die Attraktivität eines Auftrags.
 Höhere Werte signalisieren größere Gewinnchancen, gehen jedoch oft mit komplexeren Anforderungen einher.
 Ökonomische Variablen wie Auftragswerte weisen typischerweise eine starke Rechtsschiefe (positive Skewness) auf.
@@ -119,22 +119,43 @@ Um diese Schiefe zu korrigieren, wird der Auftragswert logarithmiert ($\ln(\text
 Durch diese Transformation werden die Abstände zwischen großen Werten gestaucht, wodurch sich die Verteilung einer Normalverteilung annähert und robustere Schätzergebnisse ermöglicht werden.
 Zusätzlich wurde die Variable für die Analyse z-standardisiert.
 
-\textbf{Zeitliche Effekte (year):}
+Zeitliche Effekte (year):
 Der Untersuchungszeitraum von 2014 bis 2022 umfasst ökonomisch und gesellschaftlich volatile Phasen, wie etwa die COVID-19-Pandemie oder Phasen erhöhter Inflation.
 Solche makroökonomischen Ereignisse können die generelle Bereitschaft von Unternehmen zur Angebotsabgabe beeinflussen, unabhängig von den spezifischen Eigenschaften einer Ausschreibung~\parencite{Vergabestatistik}.
 Um diese zeitlichen Schwankungen statistisch zu isolieren, wird das Jahr der Ausschreibung als kategoriale Variable in das Modell aufgenommen (Time Fixed Effects).
 Dies bewirkt, dass das Modell primär Ausschreibungen innerhalb desselben Jahres miteinander vergleicht.
 Globale Konjunktureffekte, die alle Ausschreibungen eines Jahres gleichermaßen betreffen, werden so konstant gehalten und verzerren nicht den gemessenen Effekt der Verfahrensdauer.
 
-\textbf{Verfahrensmerkmale:}
+Verfahrensmerkmale:
 Zusätzlich wird für die Art des Verfahrens (procurement\_method) kontrolliert, da offene Verfahren (open procedure) strukturell eine höhere Anzahl an Bietern zulassen als beschränkte oder verhandlungsbasierte Verfahren.
 Ebenso wird die Art der Leistung (procurement\_category) berücksichtigt (z.B.\ Bauleistung vs.\ Dienstleistung vs.\ Lieferleistung), da sich branchenspezifische Marktstrukturen und Wettbewerbsintensitäten unterscheiden können.
 
 
-
 \subsection{Statistische Auswertungsmethode}\label{subsec:statistische-auswertungsmethode}
-% Welche statistischen Verfahren wurden genutzt? (z.B. multiple Regressionsanalyse).
 
 Die Datenaufbereitung und statistische Analyse wurden in der Programmiersprache Python (Version 3.12) durchgeführt.
-Für die deskriptive Statistik und Datenmanipulation wurde die Bibliothek pandas verwendet, während die Schätzung der Regressionsmodelle (ZINB und GLM) mittels statsmodels erfolgte.
+Für die deskriptive Statistik und Datenmanipulation wurde die Bibliothek pandas verwendet, während die Schätzung der Regressionsmodelle mittels statsmodels erfolgte.
 Die Visualisierung der Ergebnisse wurde mit matplotlib und seaborn erstellt.
+
+Eine explorative Analyse der abhängigen Variable \enquote{Anzahl der Gebote} (total\_bids) zeigt zwei statistische Besonderheiten, die gegen die Verwendung linearer oder Poisson-Modelle sprechen.
+Zum einen weist der Datensatz eine massive Überrepräsentation von Nullwerten auf (ca.\ 84\% aller Ausschreibungen der bereinigten Rohdaten erhielten kein Gebot).
+Diesen Effekt wird Zero-Inflation genannt.
+Zum anderen übersteigt die Varianz der Anzahl der Gebote deutlich den Mittelwert, was eine Überdispersion zur Folge hat.
+
+Um diese beiden Effekte in der Analyse zu berücksichtigen, wurde ein Zero-Inflated Negative Binomial (ZINB) Regressionsmodell gewählt.
+Dieses Modell basiert auf der von Lambert (1992) entwickelten Theorie der Zero-Inflated Poisson (ZIP) Modelle, welche von Greene (1994) um die Negativ-Binomial-Verteilung erweitert wurde, um zusätzlich zur Inflation auch die Überdispersion zu modellieren~\parencite{ZIP}, ~\parencite{Excess_Zeros}.
+
+Das ZINB-Modell geht theoretisch davon aus, dass die beobachteten Daten aus zwei latenten, unterschiedlichen Populationen stammen.
+Zum einen gibt es die \enquote{Always-Zero}-Gruppe, wobei es sich hier um strukturelle Nullen handelt.
+Das betrifft Ausschreibungen, die aufgrund unattraktiver Rahmenbedingungen von Anfang an keine Chance hatten, ein Gebot zu erhalten.
+Für diese Schätzung wird das binäre Logit-Modell verwendet, welches die Wahrscheinlichkeit schätzt, dass eine Ausschreibung in diese gruppe fällt.
+
+Die andere Gruppe ist die \endquote{Count}-Gruppe, was einem Zählprozess gleichkommt.
+Diese Gruppe umfasst Ausschreibungen, die grundsätzlich wettbewerbsfähig sind.
+Die Anzahl der Gebote kann hierbei auch Null sein, ist aber meist über Null.
+Hierbei erfolgt die Schätzung durch ein Negativ-Binomial-Modell.
+
+Durch diese simultane Schätzung beider Prozesse können verzerrte Koeffizienten, die bei herkömmlichen Modellen durch die Vermischung dieser zwei Gruppen entstehen würden, korrigiert werden~\parencite{NBR}.
+
+
+
