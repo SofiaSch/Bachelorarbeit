@@ -139,16 +139,16 @@ Die Visualisierung der Ergebnisse wurde mit matplotlib und seaborn erstellt.
 
 Eine explorative Analyse der abhängigen Variable \enquote{Anzahl der Gebote} (total\_bids) zeigt zwei statistische Besonderheiten, die gegen die Verwendung linearer oder Poisson-Modelle sprechen.
 Zum einen weist der Datensatz eine massive Überrepräsentation von Nullwerten auf (ca.\ 84\% aller Ausschreibungen der bereinigten Rohdaten erhielten kein Gebot).
-Diesen Effekt wird Zero-Inflation genannt.
+Dieser Effekt wird Zero-Inflation genannt.
 Zum anderen übersteigt die Varianz der Anzahl der Gebote deutlich den Mittelwert, was eine Überdispersion zur Folge hat.
 
 Um diese beiden Effekte in der Analyse zu berücksichtigen, wurde ein Zero-Inflated Negative Binomial (ZINB) Regressionsmodell gewählt.
-Dieses Modell basiert auf der von Lambert (1992) entwickelten Theorie der Zero-Inflated Poisson (ZIP) Modelle, welche von Greene (1994) um die Negativ-Binomial-Verteilung erweitert wurde, um zusätzlich zur Inflation auch die Überdispersion zu modellieren~\parencite{ZIP}, ~\parencite{Excess_Zeros}.
+Dieses Modell basiert auf der von Lambert (1992) entwickelten Theorie der Zero-Inflated Poisson (ZIP) Modelle, welche von Greene (1994) um die Negativ-Binomial-Verteilung erweitert wurde, um zusätzlich zur Inflation auch die Überdispersion zu modellieren~\parencite{ZIP, Excess_Zeros}.
 
 Das ZINB-Modell geht theoretisch davon aus, dass die beobachteten Daten aus zwei latenten, unterschiedlichen Populationen stammen.
 Zum einen gibt es die \enquote{Always-Zero}-Gruppe, wobei es sich hier um strukturelle Nullen handelt.
 Das betrifft Ausschreibungen, die aufgrund unattraktiver Rahmenbedingungen von Anfang an keine Chance hatten, ein Gebot zu erhalten.
-Für diese Schätzung wird das binäre Logit-Modell verwendet, welches die Wahrscheinlichkeit schätzt, dass eine Ausschreibung in diese gruppe fällt.
+Für diese Schätzung wird das binäre Logit-Modell verwendet, welches die Wahrscheinlichkeit schätzt, dass eine Ausschreibung in diese Gruppe fällt.
 
 Die andere Gruppe ist die \endquote{Count}-Gruppe, was einem Zählprozess gleichkommt.
 Diese Gruppe umfasst Ausschreibungen, die grundsätzlich wettbewerbsfähig sind.
@@ -156,6 +156,18 @@ Die Anzahl der Gebote kann hierbei auch Null sein, ist aber meist über Null.
 Hierbei erfolgt die Schätzung durch ein Negativ-Binomial-Modell.
 
 Durch diese simultane Schätzung beider Prozesse können verzerrte Koeffizienten, die bei herkömmlichen Modellen durch die Vermischung dieser zwei Gruppen entstehen würden, korrigiert werden~\parencite{NBR}.
+
+
+
+Die zweite abhängige Variable, der KMU-Anteil (sme\_share), stellt eine proportionale Größe dar, die per Definition auf das Intervall zwischen 0 und 1 begrenzt ist.
+Die Verwendung einer klassischen linearen Regression (OLS) wäre hier methodisch problematisch, da sie Vorhersagen außerhalb dieses logischen Wertebereichs (z.B.\ < 0 oder > 1) erzeugen könnte und die spezifische Varianzstruktur von Anteilsdaten ignoriert.
+
+Stattdessen wurde ein Fractional Logit Modell angewendet.
+Hierbei handelt es sich um ein Generalisiertes Lineares Modell (GLM) mit einer Binomial-Verteilung und einer Logit-Link-Funktion, basierend auf dem methodischen Ansatz von Papke und Wooldridge (1996).
+Dieses Verfahren eignet sich explizit für abhängige Variablen, die Anteile darstellen, auch wenn diese an den Rändern (0 und 1) gehäuft auftreten.
+Zur Korrektur potenzieller Heteroskedastizität wurden robuste Standardfehler (HC0) berechnet.
+
+Da der Anteil von KMU an den Bietern mathematisch nur berechnet werden kann, wenn mindestens ein Gebot vorliegt, wurde die Stichprobe für dieses Modell auf erfolgreiche Ausschreibungen mit einer Bieteranzahl >0 beschränkt.
 
 
 
