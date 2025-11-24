@@ -1,12 +1,178 @@
-\section{Ergebnisse}
-% Rein faktenbasierte Darstellung der Ergebnisse. Keine Interpretation! [cite: 2460, 2461]
-% Struktur: Hypothese wiederholen, Analyseergebnis berichten, Aussage über Bestätigung/Widerlegung treffen[cite: 2461].
+\newpage
+\section{Ergebnisse}\label{sec:ergebnisse}
 
-\subsection{Deskriptive Statistiken}
-% Hier kommt die obligatorische Tabelle mit Mittelwerten, Standardabweichungen und Korrelationen rein[cite: 2367].
-% Siehe \ref{tab:deskriptiv} in main.tex.
+\subsection{Deskriptive Statistiken}\label{subsec:deskriptive-statistiken}
 
-\subsection{Hypothesentests}
-% Ergebnisse für H1...
-% Ergebnisse für H2...
-% Ergebnisse für H3...
+Die deskriptive Analyse der finalen Stichprobe ($N=150.140$) offenbart deutliche strukturelle Unterschiede zwischen den drei untersuchten Ländern.
+Tabelle~\ref{tab:descriptive} fasst die zentralen Kennzahlen zusammen.
+
+Hinsichtlich der unabhängigen Variable, der Verfahrensdauer, zeigt sich, dass Deutschland mit durchschnittlich 42,69 Tagen (Median: 32) die längsten Fristen ansetzt, gefolgt von Frankreich (Mittelwert: 38,33; Median: 32).
+Estland weist eine vergleichbare Median-Dauer von 33 Tagen auf, jedoch bei einer geringeren Standardabweichung.
+
+Auffällig ist der hohe Anteil an Ausschreibungen ohne Gebotsabgabe (Zero-Inflation).
+In Frankreich erhielten 96,21\,\% der Ausschreibungen kein valides Gebot, in Estland 78,94\,\% und in Deutschland 71,96\,\%.
+Dies unterstreicht die Notwendigkeit des Zero-Inflated-Modells.
+Bei den erfolgreichen Ausschreibungen (Gebote $>0$) ist der Wettbewerb in Deutschland am intensivsten (Mittelwert: 1,13 Gebote), während Frankreich (0,13) und Estland (0,65) deutlich niedriger liegen.
+
+Der Anteil der KMU an den Bietern ist in Estland mit durchschnittlich 87\,\% am höchsten, gefolgt von Deutschland (64\,\%) und Frankreich (29\,\%).
+
+\begin{table}[htbp]
+    \centering
+    \caption{Deskriptive Statistiken der Stichprobe nach Ländern}
+    \label{tab:descriptive}
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}rrr}
+        \toprule
+        \textbf{Variable} & \textbf{Estland} & \textbf{Frankreich} & \textbf{Deutschland} \\
+        \midrule
+        \textit{Verfahrensdauer (Tage)} & & & \\
+        Mittelwert (SD) & 39,67 (37,07) & 38,33 (32,53) & 42,69 (46,79) \\
+        Median & 33,00 & 32,00 & 32,00 \\
+        \midrule
+        \textit{Wettbewerb (Anzahl Gebote)} & & & \\
+        Mittelwert (SD) & 0,65 (1,62) & 0,13 (1,15) & 1,13 (3,14) \\
+        Anteil ohne Gebote & 78,94\,\% & 96,21\,\% & 71,96\,\% \\
+        \midrule
+        \textit{KMU-Anteil (wenn Gebote $>0$)} & & & \\
+        Mittelwert (SD) & 0,87 (0,28) & 0,29 (0,43) & 0,64 (0,45) \\
+        \midrule
+        \textit{Auftragswert (Median in \euro)} & 520.000 & 560.000 & 505.530 \\
+        \bottomrule
+    \end{tabular*}
+    \vspace{0.1cm}
+    \parbox{\textwidth}{\footnotesize{\textit{Anmerkung:} SD = Standardabweichung. Datenbasis OpenTender 2014--2022. Werte für KMU-Anteil basieren nur auf Ausschreibungen mit mindestens einem Gebot.}}
+\end{table}
+
+Zur weiteren Veranschaulichung der zentralen unabhängigen Variable (Verfahrensdauer) zeigt Abbildung~\ref{fig:boxplot_dauer} die Verteilung der Fristen in den drei Ländern.
+Die Boxplots verdeutlichen, dass die Kernverteilung (Median und Interquartilsabstand) in allen Ländern ähnlich gelagert ist, Deutschland jedoch eine tendenziell größere Streuung und mehr Ausreißer im oberen Bereich aufweist.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/01_boxplot_dauer}
+    \caption{Verteilung der Verfahrensdauer (in Tagen) nach Ländern}
+    \label{fig:boxplot_dauer}
+    \vspace{0.2cm}
+    \footnotesize{\textit{Quelle:} Eigene Darstellung basierend auf OpenTender-Daten (Python).}
+\end{figure}
+
+\subsection{Hypothesentests}\label{subsec:hypothesentests}
+
+\subsubsection{Einfluss der Verfahrensdauer auf die Wettbewerbsintensität}
+Zur Überprüfung von Hypothese 1 (H1) und Hypothese 3 (H3) wurde ein Zero-Inflated Negative Binomial (ZINB) Modell berechnet. Die Ergebnisse sind in Tabelle \ref{tab:zinb} dargestellt.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Ergebnisse der ZINB-Regression auf die Anzahl der Gebote (Wettbewerbsintensität)}
+    \label{tab:zinb}
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}rrr}
+        \toprule
+        \textbf{Variable} & \textbf{Koeffizient} & \textbf{Std. Fehler} & \textbf{z-Wert} \\
+        \midrule
+        \multicolumn{4}{l}{\textit{Count Model (Negative Binomial)}} \\
+        Intercept (Referenz: Estland) & $-3,042^{***}$ & 0,093 & -32,82 \\
+        Land: Frankreich & $-1,741^{***}$ & 0,059 & -29,62 \\
+        Land: Deutschland & $0,203^{***}$ & 0,059 & 3,42 \\
+        \textbf{Verfahrensdauer (z-std.)} & $\mathbf{-0,026}$ & \textbf{0,063} & \textbf{-0,41} \\
+        \textbf{Dauer $\times$ Frankreich} & $\mathbf{0,148^{*}}$ & \textbf{0,066} & \textbf{2,25} \\
+        \textbf{Dauer $\times$ Deutschland} & $\mathbf{0,105}$ & \textbf{0,064} & \textbf{1,65} \\
+        Auftragswert (log, z-std.) & $0,068^{***}$ & 0,010 & 6,75 \\
+        \midrule
+        \multicolumn{4}{l}{\textit{Kontrollvariablen}} \\
+        Verfahrensart (Selektiv) & $-0,238^{***}$ & 0,028 & -8,54 \\
+        Sektor (Dienstleistung) & $0,358^{***}$ & 0.023 & 15,55 \\
+        Sektor (Bauleistung) & $0,654^{***}$ & 0,028 & 23,06 \\
+        Jahres-Fixed-Effects & \multicolumn{3}{c}{Ja (signifikant)} \\
+        \midrule
+        \multicolumn{4}{l}{\textit{Modellgüte}} \\
+        Log-Likelihood & \multicolumn{3}{c}{-95.818} \\
+        Pseudo $R^2$ & \multicolumn{3}{c}{0,063} \\
+        Beobachtungen ($N$) & \multicolumn{3}{c}{150.140} \\
+        \bottomrule
+    \end{tabular*}
+    \vspace{0.1cm}
+    \parbox{\textwidth}{\footnotesize{\textit{Anmerkung:} Referenzkategorie für Land ist Estland. Dauer und Wert sind z-standardisiert.\\$^{*} p < 0.05, ^{**} p < 0.01, ^{***} p < 0.001 $.}}
+\end{table}
+
+Die statistischen Ergebnisse aus Tabelle~\ref{tab:zinb} lassen sich grafisch verdeutlichen.
+Abbildung~\ref{fig:interaction_wettbewerb} zeigt die vorhergesagten Werte (Predicted Margins) für die Anzahl der Gebote in Abhängigkeit von der Verfahrensdauer.
+Es wird deutlich, dass die Kurve für Estland nahezu flach verläuft, was den nicht-signifikanten Effekt widerspiegelt.
+Im Gegensatz dazu zeigen Deutschland und Frankreich eine sichtbare positive Steigung: Längere Verfahren gehen in diesen Ländern mit einer höheren Anzahl an Geboten einher.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth, trim=0cm 0cm 0cm 0cm, clip]{images/02_interaction_wettbewerb_H1_H3a}
+    \caption{Interaktionseffekt der Verfahrensdauer auf die vorhergesagte Anzahl an Geboten}
+    \label{fig:interaction_wettbewerb}
+    \vspace{0.2cm}
+    \parbox{0.75\textwidth}{\footnotesize{\textit{Quelle:} Eigene Darstellung basierend auf ZINB-Modellschätzung (Python).}}
+\end{figure}
+
+Die Analyse zeigt Folgendes:
+\begin{itemize}
+    \item Für \textbf{Estland} (Referenz) ist der Effekt der Verfahrensdauer negativ ($-0,026$), aber statistisch nicht signifikant ($p=0,681$).
+    Es besteht also kein nachweisbarer Zusammenhang zwischen Dauer und Anzahl der Gebote.
+    \item Für \textbf{Frankreich} zeigt sich ein signifikant positiver Interaktionseffekt ($0,148^{*}$).
+    Der Gesamteffekt ist somit positiv: Längere Verfahrensdauern führen hier tendenziell zu \textit{mehr} Geboten.
+    \item Für \textbf{Deutschland} ist der Interaktionseffekt ebenfalls positiv ($0,105$), verfehlt jedoch knapp das 5\%-Signifikanzniveau ($p=0,100$).
+    Der Trend deutet jedoch ebenfalls auf einen positiven Zusammenhang hin.
+\end{itemize}
+Hypothese 1 (länger = weniger Gebote) muss somit abgelehnt werden.
+In den großen Volkswirtschaften scheint eine längere Frist eher als Chance für komplexere Angebote genutzt zu werden, statt abzuschrecken.
+
+\subsubsection{Einfluss der Verfahrensdauer auf die KMU-Beteiligung}
+Zur Überprüfung von Hypothese 2 (H2) wurde ein Fractional Logit Modell (GLM) für die Subgruppe der erfolgreichen Ausschreibungen ($N=19.760$) berechnet (siehe Tabelle~\ref{tab:glm}).
+
+\begin{table}[htbp]
+    \centering
+    \caption{Ergebnisse der Fractional Logit Regression auf den KMU-Anteil}
+    \label{tab:glm}
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}rrr}
+        \toprule
+        \textbf{Variable} & \textbf{Koeffizient} & \textbf{Std. Fehler} & \textbf{z-Wert} \\
+        \midrule
+        Intercept (Referenz: Estland) & $-2,317^{***}$ & 0,643 & -3,61 \\
+        Land: Frankreich & $-2,981^{***}$ & 0.104 & -28,67 \\
+        Land: Deutschland & $-2,014^{***}$ & 0,098 & -20,57 \\
+        \textbf{Verfahrensdauer (z-std.)} & $\mathbf{-0,277^{***}}$ & \textbf{0,073} & \textbf{-3,79} \\
+        \textbf{Dauer $\times$ Frankreich} & $\mathbf{0,295^{***}}$ & \textbf{0,090} & \textbf{3,26} \\
+        \textbf{Dauer $\times$ Deutschland} & $\mathbf{0,285^{***}}$ & \textbf{0,074} & \textbf{3,85} \\
+        Auftragswert (log, z-std.) & $-0,139^{***}$ & 0,015 & -9,05 \\
+        \midrule
+        \multicolumn{4}{l}{\textit{Kontrollvariablen}} \\
+        Verfahrensart (Selektiv) & $0,633^{***}$ & 0,044 & 14,48 \\
+        Sektor (Dienstleistung) & $0,604^{***}$ & 0,043 & 14,19 \\
+        Sektor (Bauleistung) & $1,125^{***}$ & 0,041 & 27,23 \\
+        Jahres-Fixed-Effects & \multicolumn{3}{c}{Ja (signifikant)} \\
+        \midrule
+        \multicolumn{4}{l}{\textit{Modellgüte}} \\
+        Log-Likelihood & \multicolumn{3}{c}{-11.222} \\
+        Beobachtungen ($N$) & \multicolumn{3}{c}{19.760} \\
+        \bottomrule
+    \end{tabular*}
+    \vspace{0.2cm}
+    \parbox{\textwidth}{\footnotesize{\textit{Anmerkung:} Referenzkategorie für Land ist Estland.\\$^{*} p < 0.05, ^{**} p < 0.01, ^{***} p < 0.001 $.}}
+\end{table}
+
+Die in Tabelle~\ref{tab:glm} ausgewiesenen Interaktionseffekte werden in Abbildung~\ref{fig:interaction_kmu} visualisiert.
+Die Grafik illustriert die vorhergesagte Wahrscheinlichkeit für den KMU-Anteil an den Bietern.
+Hier zeigt sich der drastische Unterschied zwischen den Systemen: Während die Linien für Deutschland und Frankreich stabil verlaufen, fällt die Kurve für Estland steil ab.
+Dies verdeutlicht visuell, dass Zeitverzögerungen im estnischen System eine massive Barriere speziell für kleine und mittlere Unternehmen darstellen.
+
+\begin{figure}[H] % [H] ZWINGT DAS BILD HIERHIN
+    \centering
+    \includegraphics[width=0.75\textwidth, trim=0cm 0cm 0cm 0cm, clip]{images/03_interaction_kmu_H2_H3b}
+    \caption{Interaktionseffekt der Verfahrensdauer auf den Anteil der KMU-Gebote}
+    \label{fig:interaction_kmu}
+    \vspace{0.2cm}
+    \footnotesize{\textit{Quelle:} Eigene Darstellung basierend auf Fractional-Logit-Modellschätzung (Python).}
+\end{figure}
+
+Die Ergebnisse stützen Hypothese 2 differenziert nach Ländern:
+\begin{itemize}
+    \item In \textbf{Estland} zeigt sich ein hochsignifikanter negativer Effekt ($\beta = -0,277, p < 0,001$).
+    Je länger das Verfahren dauert, desto geringer ist der Anteil der KMU an den Bietern.
+    Hier bestätigt sich die Annahme, dass Zeitverzögerungen als Ressourcenbelastung für kleinere Unternehmen wirken.
+    \item In \textbf{Deutschland} und \textbf{Frankreich} hingegen neutralisieren die signifikant positiven Interaktionseffekte ($0,285^{***}$ bzw. $0,295^{***}$) diesen negativen Basiseffekt fast vollständig.
+    Der Gesamteffekt liegt nahe Null.
+\end{itemize}
+Zusammenfassend bestätigt sich H2 nur für das hocheffiziente System Estlands, während in Deutschland und Frankreich keine Benachteiligung der KMU durch längere Fristen nachweisbar ist.
+Auch Hypothese 3 (Deutschland reagiert am stärksten negativ) muss daher abgelehnt werden; tatsächlich reagiert Estland am sensibelsten.
