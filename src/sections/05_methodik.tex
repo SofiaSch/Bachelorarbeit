@@ -17,12 +17,10 @@ Es handelt sich um einen Sekundärdatensatz.
 Die Daten werden unter anderem im JSON Format zur Verfügung gestellt.
 Der Untersuchungszeitraum ist auf die Jahre von 2014 bis 2022 festgelegt.
 
-
-
 In 2014 wurde ein großer Schritt bezüglich des europäischen Vergaberechts gemacht, da dort neue EU-Vergaberichtlinien verabschiedet wurden~\parencite{Oeffentliche_Auftraege_DE}.
 Diese zielen auf eine Vereinfachung der Verfahren und Stärkung der KMU-Beteiligung ab~\parencite{EU2014RL24}.
-
-
+Da der Datensatz primär auf Veröffentlichungen im europäischen Amtsblatt (Tenders Electronic Daily) basiert, deckt die Analyse überwiegend oberschwellige Vergabeverfahren ab.
+Diese unterliegen den harmonisierten EU-Regelungen, was eine hohe Vergleichbarkeit der rechtlichen Rahmenbedingungen zwischen den Ländern gewährleistet.
 
 Die Wahl für das Jahr 2022 beruht auf der Datenverfügbarkeit, da das neusten Daten für Frankreich aus dem Jahre 2022 sind.
 Die Analyse dieses Zeitraums ermöglicht die Analyse innerhalb des aktuellen rechtlichen Rahmens auf einer gemeinsamen Grundlage.
@@ -157,17 +155,20 @@ Hierbei erfolgt die Schätzung durch ein Negativ-Binomial-Modell.
 
 Durch diese simultane Schätzung beider Prozesse können verzerrte Koeffizienten, die bei herkömmlichen Modellen durch die Vermischung dieser zwei Gruppen entstehen würden, korrigiert werden~\parencite{NBR}.
 
-
-
 Die zweite abhängige Variable, der KMU-Anteil (sme\_share), stellt eine proportionale Größe dar, die per Definition auf das Intervall zwischen 0 und 1 begrenzt ist.
 Die Verwendung einer klassischen linearen Regression (OLS) wäre hier methodisch problematisch, da sie Vorhersagen außerhalb dieses logischen Wertebereichs (z.B.\ < 0 oder > 1) erzeugen könnte und die spezifische Varianzstruktur von Anteilsdaten ignoriert.
-
 Stattdessen wurde ein Fractional Logit Modell angewendet.
-Hierbei handelt es sich um ein Generalisiertes Lineares Modell (GLM) mit einer Binomial-Verteilung und einer Logit-Link-Funktion, basierend auf dem methodischen Ansatz von Papke und Wooldridge (1996).
+Hierbei handelt es sich um ein Generalisiertes Lineares Modell (GLM) mit einer Binomial-Verteilung und einer Logit-Link-Funktion, basierend auf dem methodischen Ansatz von Papke und Wooldridge (1996)~\parencite{fractional_response}.
 Dieses Verfahren eignet sich explizit für abhängige Variablen, die Anteile darstellen, auch wenn diese an den Rändern (0 und 1) gehäuft auftreten.
 Zur Korrektur potenzieller Heteroskedastizität wurden robuste Standardfehler (HC0) berechnet.
 
 Da der Anteil von KMU an den Bietern mathematisch nur berechnet werden kann, wenn mindestens ein Gebot vorliegt, wurde die Stichprobe für dieses Modell auf erfolgreiche Ausschreibungen mit einer Bieteranzahl >0 beschränkt.
 
+Um die Stabilität der Ergebnisse zu validieren und sicherzustellen, dass die gemessenen Effekte nicht durch Modellspezifikationen oder spezifische Teilstichproben verzerrt sind, wurden zwei gesonderte Robustheitsanalysen durchgeführt.
+
+Zum einen wurde das Modell um die Variable award\_criteria erweitert, um zu prüfen, ob die Unterscheidung zwischen reinen Preiskriterien (niedrigster Preis) und qualitativen Kriterien die Ergebnisse beeinflussen.
+
+Da Dienstleistungen mit 77.820 Beobachtungen (52,8\%) den größten Anteil an der Gesamtstichprobe ausmachen, wurde zudem das Modell isoliert für diese Kategorie berechnet.
+Dies dient dazu auszuschließen, dass die gemessenen Effekte lediglich durch strukturelle Besonderheiten von Lieferaufträgen (31,6\%) oder Bauaufträgen (16,5\%) getrieben sind.
 
 
