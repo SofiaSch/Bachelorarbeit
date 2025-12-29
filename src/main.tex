@@ -2,7 +2,7 @@
 % HAUPTDOKUMENT (main.tex)
 % =============================================================================
 
-\documentclass[12pt, a4paper, ngerman]{scrartcl} % KOMA-Script ist flexibel
+\documentclass[12pt, a4paper, ngerman, bibliography=totoc]{scrartcl}
 
 % --- GRUNDEINSTELLUNGEN UND PAKETE ---
 \usepackage[utf8]{inputenc}
@@ -100,56 +100,21 @@
 \input{sections/07_diskussion}
 \input{sections/08_fazit}
 
+% --- VERZEICHNISSE (Abbildungen, Tabellen, Abkürzungen) ---
+\input{sections/09_verzeichnisse}
+
 % --- LITERATURVERZEICHNIS ---
-% Dieser Abschnitt kommt nach dem Text [cite: 2392]
 \newpage
-\printbibliography[title={Literaturverzeichnis}]
+\sloppy
+\printbibliography[heading=bibintoc, title={Literaturverzeichnis}]
+\fussy
 
-% --- ABBILDUNGS- UND TABELLENVERZEICHNIS (Gute wissenschaftliche Praxis) ---
-\newpage
-\listoffigures
-\listoftables
-
-% --- ABBILDUNGEN UND TABELLEN ---
-% Laut Richtlinie nach dem Literaturverzeichnis, eine pro Seite [cite: 2372]
-\newpage
-\section*{Abbildungen}
-% Hier fügen Sie Ihre Abbildungen ein
-% Beispiel:
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[width=0.8\textwidth]{images/forschungsmodell.png}
-% \caption{Mein Forschungsmodell}
-% \label{fig:modell}
-% \end{figure}
-
-\newpage
-\section*{Tabellen}
-% Hier fügen Sie Ihre Tabellen ein
-% Beispiel:
-% \begin{table}[h!]
-% \centering
-% \caption{Deskriptive Statistiken und Korrelationen}
-% \label{tab:deskriptiv}
-% \begin{tabular}{l c c c}
-% \toprule
-% Variable & M & SD & 1 \\
-% \midrule
-% 1. Verfahrensdauer & 45.21 & 10.34 & -- \\
-% \bottomrule
-% \end{tabular}
-% \end{table}
-
-% --- ANHANG (optional) ---
-% Nur wenn absolut notwendig [cite: 2375]
-% \newpage
-% \appendix
-% \section{Anhang A: Fragebogen}
+% --- ANHANG ---
+\input{sections/10_anhang}
 
 % --- EIDESSTATTLICHE ERKLÄRUNG ---
-% Ganz am Ende anfügen, Vorlage der Fakultät verwenden [cite: 2393]
-% \newpage
-% \section*{Eidesstattliche Erklärung}
+\newpage
+\input{sections/11_erklaerung}
 % ...
 
 \end{document}

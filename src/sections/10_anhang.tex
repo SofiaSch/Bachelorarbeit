@@ -1,0 +1,110 @@
+\newpage
+\section{Anhang}
+\label{sec:anhang}
+
+% Nummerierung auf A1, A2... umstellen und Zähler zurücksetzen
+\renewcommand{\thetable}{A\arabic{table}}
+\setcounter{table}{0}
+
+% --- Tabelle A1: Stichprobenreduktion (Datengrundlage zuerst) ---
+\begin{table}[htbp]
+    \centering
+    \caption{Detaillierte Übersicht der Stichprobenreduktion nach Ländern}
+    \label{tab:sample_reduction_appendix}
+    \begin{tabular}{lrrr}
+        \toprule
+        Land & Rohdaten ($N_{initial}$) & Finale Stichprobe ($N_{final}$) & Verlust (\%) \\
+        \midrule
+        Deutschland & 303.770 & 55.587 & 81,7\% \\
+        Frankreich & 342.021 & 91.149 & 73,3\% \\
+        Estland & 29.609 & 3.404 & 88,5\% \\
+        \midrule
+        \textbf{GESAMT} & \textbf{675.400} & \textbf{150.140} & \textbf{77,8\%} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% --- Tabelle A2: Korrelationsmatrix (Vorbereitende Statistik) ---
+\begin{table}[htbp]
+    \centering
+    \caption{Mittelwerte, Standardabweichungen und Korrelationen der Kernvariablen}
+    \label{tab:correlation_appendix}
+    \begin{tabular}{l cc cccc}
+        \toprule
+        Variable & M & SD & 1 & 2 & 3 & 4 \\
+        \midrule
+        1. Gebotsanzahl (total\_bids) & 0,51 & 2,17 & 1,00 &  &  &  \\
+        2. KMU-Anteil (sme\_share) & 0,58 & 0,46 & 0,04 & 1,00 &  &  \\
+        3. Verf.-dauer (z\_duration) & -0,02 & 0,86 & 0,01 & -0,02 & 1,00 &  \\
+        4. Auftragswert (z\_value) & 0,01 & 0,99 & 0,01 & -0,04 & 0,05 & 1,00 \\
+        \bottomrule
+    \end{tabular}
+    \footnotesize Anmerkung: $N = 150.140$ (sme\_share basiert auf $n = 19.760$ für Fälle mit Gebotsanzahl $> 0$).
+\end{table}
+
+% --- Tabelle A3: Robustheitsprüfung 1 (Modellvalidierung) ---
+\begin{table}[htbp]
+    \centering
+    \caption{Robustheitsprüfung 1: ZINB-Modell unter Einbeziehung der Zuschlagskriterien}
+    \label{tab:robustness_award}
+    \small
+    \begin{tabular}{lcccc}
+        \toprule
+        Variable & Koeffizient & Std. Fehler & z-Wert & P$>|z|$ \\
+        \midrule
+        \textit{Count Model (Negative Binomial)} & & & & \\
+        Intercept (Referenz: Estland) & -2,8796*** & 0,093 & -30,88 & 0,000 \\
+        Land: Frankreich & -1,3461*** & 0,060 & -22,39 & 0,000 \\
+        Land: Deutschland & 0,2006*** & 0,059 & 3,41 & 0,001 \\
+        Verfahrensdauer (z-std.) & 0,0006 & 0,064 & 0,01 & 0,993 \\
+        Dauer $\times$ Frankreich & 0,0997 & 0,067 & 1,49 & 0,138 \\
+        Dauer $\times$ Deutschland & 0,0669 & 0,065 & 1,02 & 0,304 \\
+        Auftragswert (log, z-std.) & -0,0094 & 0,010 & -0,90 & 0,370 \\
+        Zuschlagskriterium (Gewichtet) & -0,4195*** & 0,028 & -14,87 & 0,000 \\ \addlinespace
+        \textit{Kontrollvariablen \& Zeit-Effekte} & & & & \\
+        Verfahrensart (Selektiv) & -0,1109*** & 0,028 & -3,96 & 0,000 \\
+        Sektor (Dienstleistung) & 0,3857*** & 0,023 & 16,60 & 0,000 \\
+        Sektor (Bauleistung) & 0,7124*** & 0,032 & 22,53 & 0,000 \\
+        Jahr: 2015 & 0,3046** & 0,101 & 3,03 & 0,002 \\
+        Jahr: 2016 & 1,5341*** & 0,085 & 18,02 & 0,000 \\
+        Jahr: 2017 & 1,9303*** & 0,082 & 23,65 & 0,000 \\
+        Jahr: 2018 & 2,3665*** & 0,080 & 29,42 & 0,000 \\
+        Jahr: 2019 & 2,8567*** & 0,079 & 35,98 & 0,000 \\
+        Jahr: 2020 & 2,9887*** & 0,080 & 37,23 & 0,000 \\
+        Jahr: 2021 & 2,8953*** & 0,079 & 36,78 & 0,000 \\
+        Jahr: 2022 & 2,5525*** & 0,079 & 32,45 & 0,000 \\
+        \midrule
+        Log-Likelihood & -95.818 & & & \\
+        Beobachtungen (N) & 150.140 & & & \\
+        \bottomrule
+        \multicolumn{5}{l}{\footnotesize Anmerkung: * $p < 0,05$, ** $p < 0,01$, *** $p < 0,001$.}
+    \end{tabular}
+\end{table}
+
+% --- Tabelle A4: Robustheitsprüfung 2 ---
+\begin{table}[htbp]
+    \centering
+    \caption{Robustheitsprüfung 2: ZINB-Modell isoliert für den Dienstleistungssektor}
+    \label{tab:robustness_services}
+    \small
+    \begin{tabular}{lcccc}
+        \toprule
+        Variable & Koeffizient & Std. Fehler & z-Wert & P$>|z|$ \\
+        \midrule
+        Intercept (Referenz: Estland) & -2,9593*** & 0,158 & -18,73 & 0,000 \\
+        Land: Frankreich & -1,6864*** & 0,096 & -17,57 & 0,000 \\
+        Land: Deutschland & 0,0226 & 0,098 & 0,23 & 0,818 \\
+        Verfahrensdauer (z-std.) & -0,0458 & 0,112 & -0,41 & 0,683 \\
+        Dauer $\times$ Frankreich & 0,1962 & 0,117 & 1,68 & 0,093 \\
+        Dauer $\times$ Deutschland & 0,0685 & 0,117 & 0,59 & 0,558 \\
+        Auftragswert (log, z-std.) & 0,0254 & 0,018 & 1,42 & 0,155 \\
+        Verfahrensart (Selektiv) & -0,0008 & 0,037 & -0,02 & 0,984 \\
+        \addlinespace
+        \textit{Zeit-Fixed-Effects} & & & & \\
+        Jahr: 2015 bis 2022 & \multicolumn{4}{c}{Inkludiert (Alle signifikant $p < 0,001$)} \\
+        \midrule
+        Beobachtungen (n) & 77.820 & & & \\
+        \bottomrule
+        \multicolumn{5}{l}{\footnotesize Anmerkung: Modell nur für $procurement\_category = 'services'$. * $p < 0,05$, *** $p < 0,001$.}
+    \end{tabular}
+\end{table}
