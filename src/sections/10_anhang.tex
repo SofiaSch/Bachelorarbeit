@@ -1,15 +1,25 @@
 \newpage
-\patchcmd{\section}{\thesection}{\appendixname\ \thesection}{}{}
 \appendix
-\section{Anhang}
+
+% 1. Haupteintrag "A Anhang" ins Inhaltsverzeichnis zwingen
+\addcontentsline{toc}{section}{A Anhang}
+\section*{A Anhang}
 \label{sec:anhang}
 
-\DeclareCaptionContents{table}{\addcontentsline{toc}{subsection}{\protect\numberline{\thetable}#1}}
-% Nummerierung auf A1, A2... umstellen und Zähler zurücksetzen
+% 2. Magie: Jede \caption im Anhang wird automatisch ein TOC-Eintrag (Subsection-Ebene)
+\makeatletter
+\let\oldcaption\caption
+\renewcommand{\caption}[1]{%
+    \oldcaption{#1}%
+    \addcontentsline{toc}{subsection}{\thetable \hspace{0.5em} #1}%
+}
+\makeatother
+
+% Nummerierung auf A1, A2... umstellen
 \renewcommand{\thetable}{A\arabic{table}}
 \setcounter{table}{0}
 
-% --- Tabelle A1: Stichprobenreduktion (Vollbildbreite) ---
+% --- Tabelle A1: Stichprobenreduktion ---
 \begin{table}[htbp]
     \centering
     \begin{threeparttable}
@@ -29,12 +39,12 @@
         \begin{tablenotes}[flushleft, para]
             \vspace{0.1cm}
             \footnotesize
-            \textit{Anmerkung:} Die Reduktion resultiert primär aus fehlenden Angaben zum Auftragswert sowie zur Verfahrensart. [cite: 289]
+            \textit{Anmerkung:} Die Reduktion resultiert primär aus fehlenden Angaben zum Auftragswert sowie zur Verfahrensart.
         \end{tablenotes}
-    \end{threeparttable}\label{tab:table5}
+    \end{threeparttable}\label{tab:table1}
 \end{table}
 
-% --- Tabelle A2: Korrelationsmatrix (Korrektur) ---
+% --- Tabelle A2: Korrelationsmatrix ---
 \begin{table}[htbp]
     \centering
     \begin{threeparttable}
@@ -56,10 +66,10 @@
             \textit{Anmerkung:} $N = 150.140$ (sme\_share basiert auf $n = 19.760$ für Fälle mit Gebotsanzahl $> 0$).
             \tabcite{Value_Creation_in_PP, Oeffentliche_Auftraege_DE}
         \end{tablenotes}
-    \end{threeparttable}\label{tab:table4}
+    \end{threeparttable}\label{tab:table2}
 \end{table}
 
-% --- Tabelle A3: Robustheitsprüfung (Gestreckt) ---
+% --- Tabelle A3: Robustheitsprüfung 1 ---
 \begin{table}[htbp]
     \centering
     \begin{threeparttable}
@@ -97,7 +107,7 @@
     \end{threeparttable}\label{tab:table3}
 \end{table}
 
-% --- Tabelle A4: Robustheitsprüfung 2 (Vollbildbreite) ---
+% --- Tabelle A4: Robustheitsprüfung 2 ---
 \begin{table}[htbp]
     \centering
     \begin{threeparttable}
@@ -128,22 +138,19 @@
             \footnotesize
             \textit{Anmerkung:} Modell nur für $procurement\_category = 'services'$. * $p < 0,05$, *** $p < 0,01$.
         \end{tablenotes}
-    \end{threeparttable}\label{tab:table2}
+    \end{threeparttable}\label{tab:table4}
 \end{table}
 
-% --- Tabelle A5: Code-Verfügbarkeit ---
 \newpage
-\section*{A5 Digitale Anhänge und Code-Verfügbarkeit}
-\addcontentsline{toc}{subsection}{A5 Digitale Anhänge und Code-Verfügbarkeit}
-
-Zur Gewährleistung der wissenschaftlichen Transparenz und Replizierbarkeit sind die im Rahmen dieser Arbeit entwickelten Skripte in öffentlichen Repositories hinterlegt.
-
+% --- Tabelle A5: Code-Verfügbarkeit ---
 \begin{table}[htbp]
     \centering
     \begin{threeparttable}
+        \caption{Digitale Anhänge und Code-Verfügbarkeit}
+        \label{tab:code_availability}
         \begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} l}
             \toprule
-            Komponente & Repository-Link (GitHub) \\
+            \multicolumn{2}{l}{Zur Gewährleistung der Replizierbarkeit sind die Skripte online hinterlegt:} \\
             \midrule
             \textbf{Datenanalyse} & \url{https://github.com/SofiaSch/BA_Analysis} \\
             \textit{Inhalt:} & Datenbereinigung, ZINB-Modelle, Visualisierungen \\
@@ -155,7 +162,7 @@ Zur Gewährleistung der wissenschaftlichen Transparenz und Replizierbarkeit sind
         \begin{tablenotes}[flushleft, para]
             \vspace{0.1cm}
             \footnotesize
-            \textit{Anmerkung:} Die Repositories enthalten eine README-Datei mit Instruktionen zur Ausführung der Skripte sowie die verwendete \texttt{requirements.txt} für die Python-Umgebung.
+            \textit{Anmerkung:} Die Repositories enthalten eine README-Datei und eine \texttt{requirements.txt}.
         \end{tablenotes}
-    \end{threeparttable}\label{tab:table6}
+    \end{threeparttable}\label{tab:table5}
 \end{table}
