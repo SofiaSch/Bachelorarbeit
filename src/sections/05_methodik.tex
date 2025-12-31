@@ -1,63 +1,63 @@
 \newpage
 \section{Methodik}\label{sec:methodik}
 
-Um die Hypothesen zu überprüfen und somit die Forschungsfrage zu beantworten führen wir ein quantitatives, komparatives Ex-post-facto-Forschungsdesign durch.
-Die Hypothese wird mittels statistischer Regressionsanalysen auf Basis numerischer Daten getestet und ist somit quantitativ.
-Der gezielte Vergleich der drei Länder Deutschland, Frankreich und Estland nach dem \endquote{Most Different System Design} (MDSD) stellt eine komparative Analyse dar.
+Um die Hypothesen zu überprüfen und damit die Forschungsfrage zu beantworten, führen wir ein quantitatives, komparatives Ex post facto-Forschungsdesign durch.
+Die Hypothese wird mittels statistischer Regressionsanalysen anhand numerischer Daten getestet und ist somit quantitativ.
+Der gezielte Vergleich der drei Länder Deutschland, Frankreich und Estland nach dem \endquote{Most Different Systems Design} (MDSD) stellt eine komparative Analyse dar.
 Zudem beziehen wir uns in der Analyse auf bereits vergangene Vergabeverfahren, die nicht experimentell manipuliert wurden, was das Design als Ex-post-facto-Ansatz ausweist.
 
 \subsection{Datensatz und Stichprobe}\label{subsec:datensatz-und-stichprobe}
 
 \subsubsection{Datenquelle und -gewinnung}
 
-Die Daten, die für die empirische Analyse genutzt werden stammen aus der OpenTender Plattform, welche vom Government Transparency Institute gesammelt, transformiert und veröffentlicht wird~\parencite{GTI2024}.
-In der Datenbank befindet sich die Daten von insgesamt 35 Gerichtsbarkeiten, davon 27 Mitgliedstaaten der Europäischen Union~\parencite{GTI2024}.
+Die Daten, die für die empirische Analyse genutzt werden, stammen aus der OpenTender-Plattform, die vom Government Transparency Institute gesammelt, transformiert und veröffentlicht wird~\parencite{GTI2024}.
+In der Datenbank befinden sich Daten zu insgesamt 35 Gerichtsbarkeiten, davon 27 Mitgliedstaaten der Europäischen Union~\parencite{GTI2024}.
 Es handelt sich um einen Sekundärdatensatz.
 
-Die Daten werden unter anderem im JSON Format zur Verfügung gestellt.
-Der Untersuchungszeitraum ist auf die Jahre von 2014 bis 2022 festgelegt.
+Die Daten werden unter anderem im JSON-Format bereitgestellt.
+Der Untersuchungszeitraum ist auf die Jahre 2014 bis 2022 festgelegt.
 
-In 2014 wurde ein großer Schritt bezüglich des europäischen Vergaberechts gemacht, da dort neue EU-Vergaberichtlinien verabschiedet wurden~\parencite{Oeffentliche_Auftraege_DE}.
-Diese zielen auf eine Vereinfachung der Verfahren und Stärkung der KMU-Beteiligung ab~\parencite{EU2014RL24}.
+2014 wurde ein großer Schritt im europäischen Vergaberechts gemacht, da neue EU-Vergaberichtlinien verabschiedet wurden~\parencite{Oeffentliche_Auftraege_DE}.
+Diese zielen auf die Vereinfachung der Verfahren und die Stärkung der KMU-Beteiligung ab~\parencite{EU2014RL24}.
 Da der Datensatz primär auf Veröffentlichungen im europäischen Amtsblatt (Tenders Electronic Daily) basiert, deckt die Analyse überwiegend oberschwellige Vergabeverfahren ab.
 Diese unterliegen den harmonisierten EU-Regelungen, was eine hohe Vergleichbarkeit der rechtlichen Rahmenbedingungen zwischen den Ländern gewährleistet.
 
-Die Wahl für das Jahr 2022 beruht auf der Datenverfügbarkeit, da das neusten Daten für Frankreich aus dem Jahre 2022 sind.
-Die Analyse dieses Zeitraums ermöglicht die Analyse innerhalb des aktuellen rechtlichen Rahmens auf einer gemeinsamen Grundlage.
+Die Wahl für das Jahr 2022 beruht auf der Datenverfügbarkeit, da die neuesten Daten für Frankreich aus dem Jahre 2022 stammen.
+Die Analyse dieses Zeitraums ermöglicht eine Analyse innerhalb des aktuellen rechtlichen Rahmens auf einer gemeinsamen Grundlage.
 
 \subsubsection{Länderauswahl}
 
 Die Auswahl der Länder basiert auf dem \endquote{Most Different Systems Design} (MDSD).
-Ziel ist es dabei drei Länder, innerhalb des gemeinsamen rechtlichen Rahmens der EU, mit unterschiedlichen Verwaltungsstrukturen zu vergleichen.
+Ziel ist es, drei Länder innerhalb des gemeinsamen rechtlichen Rahmens der EU mit unterschiedlichen Verwaltungsstrukturen zu vergleichen.
 
-Deutschland zählt als Vorreiter in der Umsetzung der neuen EU-Vergaberichtlinien und ist zudem hochgradig föderalistisch und regulierungsintensiv~\parencite{innovation_policy_PP}.
+Deutschland gilt als Vorreiter bei der Umsetzung der neuen EU-Vergaberichtlinien und ist zudem hochgradig föderalistisch und regulierungsintensiv~\parencite{innovation_policy_PP}.
 Die dezentrale Vergabe erfolgt auf Bundes-, Landes- und Kommunalebene, was zu einer heterogenen Verwaltungslandschaft führt~\parencite{DE_FOER}.
 
-Frankreich dient als gegensatz mit einem historisch zentralem Staat~\parencite{FR_Zentr}.
+Frankreich dient als Gegensatz zu einem historisch zentralen Staat~\parencite{FR_Zentr}.
 Die Vergaben sind größtenteils landesweit standardisiert.
 Als drittes Land ist Estland deutlich kleiner als die beiden wirtschaftlich starken Länder Deutschland und Frankreich.
-Dennoch gilt Estland als digitaler Vorreiter, was die Digitalisierung in Europa betrifft~\parencite{EST_Digital}.
+Dennoch gilt Estland als Vorreiter in der Digitalisierung in Europa~\parencite{EST_Digital}.
 
-Durch den gezielten Vergleich dieser unterschiedlichen Systeme wird es möglich, über eine reine Effektmessung hinauszugehen und zu einem tieferen, kausalen Verständnis darüber zu gelangen, warum und unter welchen Bedingungen die Dauer von Vergabeverfahren den Wettbewerb tatsächlich beeinflusst.
+Durch den gezielten Vergleich dieser unterschiedlichen Systeme wird es möglich, über eine reine Effektmessung hinauszugehen und zu einem tieferen, kausalen Verständnis zu gelangen, warum und unter welchen Bedingungen die Dauer von Vergabeverfahren den Wettbewerb tatsächlich beeinflusst.
 
 \subsubsection{Stichprobenziehung}
 
-Die Analyse der Daten erfordert zunächst deren Umwandlung in ein geeignetes Format, welches die Datenaufbereitung für die nachfolgende Analyse erleichtert.
-Mittels eines Python-Skripts erfolgte eine Aufbereitung aller Einträge pro Land, bei der ausschließlich die Variablen extrahiert wurden, die für die Forschungsfrage von Relevanz sind.
-Im Rahmen der weiteren Aufbereitung erfolgte eine Konvertierung der Daten in eine CSV-Datei pro Land.
+Die Analyse der Daten erfordert zunächst deren Umwandlung in ein geeignetes Format, das die Datenaufbereitung für die nachfolgende Analyse erleichtert.
+Mittels eines Python-Skripts wurden pro Land eine Aufbereitung aller Einträge vorgenommen, wobei ausschließlich die für die Forschungsfrage relevanten Variablen extrahiert wurden.
+Im Rahmen der weiteren Aufbereitung wurden die Datenkonvertierung in eine CSV-Datei pro Land vorgenommen.
 Daraufhin folgt die Bereinigung.
 
-Im ersten Schritt der Bereinigung wurde die Datumsspalte von einem Text in ein Datums-Format konvertiert.
+Im ersten Schritt der Bereinigung wurde die Datumsspalte von einem Textformat in ein Datumsformat konvertiert.
 Nachfolgend wurden sämtliche Einträge eliminiert, bei denen das Start- oder Enddatum nicht angegeben war, da diese für die Analyse nicht relevant sind.
 Bei einigen Einträgen treten Logikfehler auf, die sich dadurch äußern, dass das Enddatum vor dem Startdatum liegt.
 Auch diese wurden aus den betreffenden Dateien entfernt.
-Anschließend wurde eine Filterung der Einträge vorgenommen, die auch im wettbewerblichen Verfahren partizipiert haben, um eine Ausschließung von Direktvergaben zu gewährleisten.
+Anschließend wurde eine Filterung der Einträge vorgenommen, die auch am wettbewerblichen Verfahren teilgenommen haben, um eine Ausschließung von Direktvergaben zu gewährleisten.
 
-Durch die Implementierung dieser Schritte wurde eine Reduktion der Datenmenge von 1.547.352 Einträgen (Deutschland: 402.358, Frankreich: 1.097.001, Estland: 47.993) auf 675.400 Einträge durchgeführt, um eine konsistente und signifikante Stichprobe zu erhalten.
+Durch die Implementierung dieser Schritte wurde die Datenmenge von 1.547.352 Einträgen (Deutschland: 402.358, Frankreich: 1.097.001, Estland: 47.993) auf 675.400 Einträge reduziert, um eine konsistente und signifikante Stichprobe zu erhalten.
 
 Für die Durchführung der multivariaten Regressionsanalyse ist eine weitere Einschränkung der Stichprobe auf vollständige dokumentierte Fälle erforderlich.
-Den größten Anteil am Datenverlust verursachen fehlende Angaben zum Auftragswerts (tender\_value) sowie zur Verfahrensart (procurement\_method).
-Dies resultiert in einer finalen Stichprobe von 150.140 vollständig beobachteten Vergabeverfahren, die die Grundlage für die nachfolgenden Modellschätzungen bilden.
+Den größten Anteil am Datenverlust verursachen fehlende Angaben zum Auftragswert (tender\_value) und zur Verfahrensart (procurement\_method).
+Dies resultiert in einer finalen Stichprobe von 150.140 vollständig beobachteten Vergabeverfahren, die die Grundlage für die nachfolgenden Modellschätzungen bildet.
 
 \begin{table}[htbp]
     \centering
@@ -78,29 +78,29 @@ Dies resultiert in einer finalen Stichprobe von 150.140 vollständig beobachtete
 
     \vspace{0.2cm} % Kleiner Abstand zur Anmerkung
 
-    \parbox{0.85\textwidth}{\small \textit{Anmerkung:} Die Reduktion resultiert primär aus fehlenden Angaben zum Auftragswert (\textit{tender\_value}) sowie zur Verfahrensart, welche zwingende Voraussetzungen für die multivariate Analyse sind.}
+    \parbox{0.85\textwidth}{\small \textit{Anmerkung:} Die Reduktion resultiert primär aus fehlenden Angaben zum Auftragswert (\textit{tender\_value}) sowie zur Verfahrensart, die zwingende Voraussetzungen für die multivariate Analyse sind.}
 \end{table}
 
 Die Tabelle~\ref{tab:stichprobenreduktion} fasst den Prozess der Stichprobenziehung für die multivariate Analyse zusammen.
 Der vergleichsweise hohe Ausschluss von Fällen in Estland (88,5\%) und Deutschland (81,7\%) ist auf die häufig fehlende Erfassung des exakten Auftragswerts in den Quelldaten zurückzuführen.
-Dennoch verbleibt für alle drei Länder eine Stichprobengröße, die statistisch hochsignifikante Schätzungen erlaubt.
+Dennoch verbleibt für alle drei Länder eine Stichprobengröße, die statistisch hochsignifikante Schätzungen ermöglicht.
 Durch diesen strengen Filterprozess wird sichergestellt, dass die Analyse ausschließlich auf validen und vollständig dokumentierten Vergabeverfahren beruht.
 
 \subsection{Variablen und Operationalisierung}\label{subsec:variablen-und-operationalisierung}
 
-Die Operationalisierung der Variablen soll den kausalen Effekt der Verfahrensdauer auf die Wettbewerbsintensität isoliert von anderen Einflussfaktoren betrachten.
+Die Operationalisierung der Variablen soll den kausalen Effekt der Verfahrensdauer auf die Wettbewerbsintensität isoliert von anderen Einflussfaktoren erfassen.
 
-\subsubsection{Unabhängige und Abhängige Variablen}
+\subsubsection{Unabhängige und abhängige Variablen}
 
 Als unabhängige Variable wird die geplante Dauer des Ausschreibungszeitraums in Tagen bemessen.
 Dabei wird die Differenz zwischen dem Datum der geplanten Angebotsabgabe (endDate) und dem Datum der Veröffentlichung der Ausschreibung (publicationDate) berechnet.
 
-Für unsere Analyse brauchen wir zwei abhängige Variablen.
-Die erste beschreibt die Wettbewerbsintensität und wird direkt durch die absolute Anzahl der eingegangenen Gebote (total\_bids) pro Ausschreibung gemessen.
+Für unsere Analyse benötigen wir zwei abhängige Variablen.
+Die erste beschreibt die Wettbewerbsintensität und wird direkt anhand der absoluten Anzahl der eingegangenen Gebote (total\_bids) pro Ausschreibung gemessen.
 Die zweite abhängige Variable beschreibt die KMU-Beteiligung.
 Sie wird nicht, wie bei der Wettbewerbsintensität in absoluten Zahlen gemessen, sondern als prozentualer Anteil der Gesamtgebote.
 Dazu teilen wir die Anzahl der KMU-Gebote (sme\_bids) durch die Gesamtzahl der Gebote (total\_bids).
-Dadurch, dass wir hier den Anteil berechnen und nicht die absolute Zahl können wir messen, ob kleine und mittelständische Unternehmen tatsächlich überproportional von längeren Verfahrensdauern betroffen sind oder nicht.
+Dadurch, dass wir hier den Anteil berechnen und nicht die absolute Zahl, können wir messen, ob kleine und mittelständische Unternehmen tatsächlich überproportional von längeren Verfahrensdauern betroffen sind.
 Da dieser Anteil nur berechnet werden kann, wenn mindestens ein Gebot vorliegt, bezieht sich diese Analyse ausschließlich auf erfolgreiche Ausschreibungen mit einer Bieteranzahl von mindestens 1.
 
 \subsubsection{Kontrollvariablen}
@@ -111,18 +111,18 @@ Auftragswert (tender\_value):
 Der geschätzte Auftragswert gilt als zentraler Indikator für die Attraktivität eines Auftrags.
 Höhere Werte signalisieren größere Gewinnchancen, gehen jedoch oft mit komplexeren Anforderungen einher.
 Ökonomische Variablen wie Auftragswerte weisen typischerweise eine starke Rechtsschiefe (positive Skewness) auf.
-Dies bedeutet, dass die Verteilung nicht symmetrisch ist, sondern eine Häufung bei kleineren Werten zeigt, während wenige extrem hohe Werte („Ausreißer“ nach oben) die Verteilung verzerren.
+Dies bedeutet, dass die Verteilung nicht symmetrisch ist, sondern eine Häufung bei kleineren Werten aufweist, während wenige extrem hohe Werte („Ausreißer“ nach oben) die Verteilung verzerren.
 In regressionsanalytischen Modellen können solche Extremwerte die Schätzergebnisse unverhältnismäßig stark beeinflussen und die Annahme der Normalverteilung der Residuen verletzen.
 Um diese Schiefe zu korrigieren, wird der Auftragswert logarithmiert ($\ln(\text{Wert})$).
 Durch diese Transformation werden die Abstände zwischen großen Werten gestaucht, wodurch sich die Verteilung einer Normalverteilung annähert und robustere Schätzergebnisse ermöglicht werden.
 Zusätzlich wurde die Variable für die Analyse z-standardisiert.
 
 Zeitliche Effekte (year):
-Der Untersuchungszeitraum von 2014 bis 2022 umfasst ökonomisch und gesellschaftlich volatile Phasen, wie etwa die COVID-19-Pandemie oder Phasen erhöhter Inflation.
-Solche makroökonomischen Ereignisse können die generelle Bereitschaft von Unternehmen zur Angebotsabgabe beeinflussen, unabhängig von den spezifischen Eigenschaften einer Ausschreibung~\parencite{Vergabestatistik}.
+Der Untersuchungszeitraum von 2014 bis 2022 umfasst ökonomisch und gesellschaftlich volatile Phasen wie etwa die COVID-19-Pandemie oder die Phase erhöhter Inflation.
+Solche makroökonomischen Ereignisse können die allgemeine Bereitschaft von Unternehmen zur Angebotsabgabe beeinflussen, unabhängig von den spezifischen Eigenschaften einer Ausschreibung~\parencite{Vergabestatistik}.
 Um diese zeitlichen Schwankungen statistisch zu isolieren, wird das Jahr der Ausschreibung als kategoriale Variable in das Modell aufgenommen (Time Fixed Effects).
 Dies bewirkt, dass das Modell primär Ausschreibungen innerhalb desselben Jahres miteinander vergleicht.
-Globale Konjunktureffekte, die alle Ausschreibungen eines Jahres gleichermaßen betreffen, werden so konstant gehalten und verzerren nicht den gemessenen Effekt der Verfahrensdauer.
+Globale Konjunktureffekte, die alle Ausschreibungen eines Jahres gleichermaßen betreffen, werden so konstant gehalten, dass sie den gemessenen Effekt der Verfahrensdauer nicht verzerren.
 
 Verfahrensmerkmale:
 Zusätzlich wird für die Art des Verfahrens (procurement\_method) kontrolliert, da offene Verfahren (open procedure) strukturell eine höhere Anzahl an Bietern zulassen als beschränkte oder verhandlungsbasierte Verfahren.
@@ -131,9 +131,9 @@ Ebenso wird die Art der Leistung (procurement\_category) berücksichtigt (z.B.\ 
 
 \subsection{Statistische Auswertungsmethode}\label{subsec:statistische-auswertungsmethode}
 
-Die Datenaufbereitung und statistische Analyse wurden in der Programmiersprache Python (Version 3.12) durchgeführt.
-Für die deskriptive Statistik und Datenmanipulation wurde die Bibliothek pandas verwendet, während die Schätzung der Regressionsmodelle mittels statsmodels erfolgte.
-Die Visualisierung der Ergebnisse wurde mit matplotlib und seaborn erstellt.
+Die Datenaufbereitung und die statistische Analyse wurden in der Programmiersprache Python (Version 3.12) durchgeführt.
+Für die deskriptive Statistik und die Datenmanipulation wurde die Bibliothek pandas verwendet, während die Schätzung der Regressionsmodelle mittels statsmodels erfolgte.
+Die Visualisierung der Ergebnisse wurde mit Matplotlib und Seaborn erstellt.
 
 Eine explorative Analyse der abhängigen Variable \enquote{Anzahl der Gebote} (total\_bids) zeigt zwei statistische Besonderheiten, die gegen die Verwendung linearer oder Poisson-Modelle sprechen.
 Zum einen weist der Datensatz eine massive Überrepräsentation von Nullwerten auf (ca.\ 84\% aller Ausschreibungen der bereinigten Rohdaten erhielten kein Gebot).
@@ -141,34 +141,34 @@ Dieser Effekt wird Zero-Inflation genannt.
 Zum anderen übersteigt die Varianz der Anzahl der Gebote deutlich den Mittelwert, was eine Überdispersion zur Folge hat.
 
 Um diese beiden Effekte in der Analyse zu berücksichtigen, wurde ein Zero-Inflated Negative Binomial (ZINB) Regressionsmodell gewählt.
-Dieses Modell basiert auf der von Lambert (1992) entwickelten Theorie der Zero-Inflated Poisson (ZIP) Modelle, welche von Greene (1994) um die Negativ-Binomial-Verteilung erweitert wurde, um zusätzlich zur Inflation auch die Überdispersion zu modellieren~\parencite{ZIP, Excess_Zeros}.
+Dieses Modell basiert auf der von Lambert (1992) entwickelten Theorie der Zero-Inflated Poisson (ZIP) Modelle, die von Greene (1994) um die Negativ-Binomial-Verteilung erweitert wurde, um zusätzlich zur Inflation auch die Überdispersion zu modellieren~\parencite{ZIP, Excess_Zeros}.
 
-Das ZINB-Modell geht theoretisch davon aus, dass die beobachteten Daten aus zwei latenten, unterschiedlichen Populationen stammen.
-Zum einen gibt es die \enquote{Always-Zero}-Gruppe, wobei es sich hier um strukturelle Nullen handelt.
+Das ZINB-Modell geht theoretisch davon aus, dass die beobachteten Daten aus zwei latenten Populationen stammen.
+Zum einen gibt es die \enquote{Always-Zero}-Gruppe, wobei es sich um strukturelle Nullen handelt.
 Das betrifft Ausschreibungen, die aufgrund unattraktiver Rahmenbedingungen von Anfang an keine Chance hatten, ein Gebot zu erhalten.
-Für diese Schätzung wird das binäre Logit-Modell verwendet, welches die Wahrscheinlichkeit schätzt, dass eine Ausschreibung in diese Gruppe fällt.
+Für diese Schätzung wird das binäre Logit-Modell verwendet, das die Wahrscheinlichkeit schätzt, dass eine Ausschreibung in diese Gruppe fällt.
 
-Die andere Gruppe ist die \endquote{Count}-Gruppe, was einem Zählprozess gleichkommt.
+Die andere Gruppe ist die \endquote{Count}-Gruppe, die einem Zählprozess entspricht.
 Diese Gruppe umfasst Ausschreibungen, die grundsätzlich wettbewerbsfähig sind.
-Die Anzahl der Gebote kann hierbei auch Null sein, ist aber meist über Null.
-Hierbei erfolgt die Schätzung durch ein Negativ-Binomial-Modell.
+Die Anzahl der Gebote kann hierbei auch Null sein, ist jedoch meist über Null.
+Hierbei erfolgt die Schätzung mithilfe eines Negativ-Binomial-Modells.
 
-Durch diese simultane Schätzung beider Prozesse können verzerrte Koeffizienten, die bei herkömmlichen Modellen durch die Vermischung dieser zwei Gruppen entstehen würden, korrigiert werden~\parencite{NBR}.
+Durch diese simultane Schätzung beider Prozesse können verzerrte Koeffizienten, die bei herkömmlichen Modellen durch die Vermischung beider Gruppen entstehen würden, korrigiert werden~\parencite{NBR}.
 
-Die zweite abhängige Variable, der KMU-Anteil (sme\_share), stellt eine proportionale Größe dar, die per definition auf das Intervall zwischen 0 und 1 begrenzt ist.
+Die zweite abhängige Variable, der KMU-Anteil (sme\_share), stellt eine proportionale Größe dar, die definitionsgemäß auf das Intervall zwischen 0 und 1 begrenzt ist.
 Die Verwendung einer klassischen linearen Regression (OLS) wäre hier methodisch problematisch, da sie Vorhersagen außerhalb dieses logischen Wertebereichs (z.B.\ < 0 oder > 1) erzeugen könnte und die spezifische Varianzstruktur von Anteilsdaten ignoriert.
-Stattdessen wurde ein Fractional Logit Modell angewendet.
-Hierbei handelt es sich um ein Generalisiertes Lineares Modell (GLM) mit einer Binomial-Verteilung und einer Logit-Link-Funktion, basierend auf dem methodischen Ansatz von Papke und Wooldridge (1996)~\parencite{fractional_response}.
-Dieses Verfahren eignet sich explizit für abhängige Variablen, die Anteile darstellen, auch wenn diese an den Rändern (0 und 1) gehäuft auftreten.
+Stattdessen wurde ein Fractional-Logit-Modell angewendet.
+Hierbei handelt es sich um ein generalisiertes lineares Modell (GLM) mit einer Binomial-Verteilung und einer Logit-Link-Funktion, basierend auf dem methodischen Ansatz von Papke und Wooldridge (1996)~\parencite{fractional_response}.
+Dieses Verfahren eignet sich explizit für abhängige Variablen, die Anteile darstellen, auch wenn sie an den Rändern (0 und 1) gehäuft auftreten.
 Zur Korrektur potenzieller Heteroskedastizität wurden robuste Standardfehler (HC0) berechnet.
 
-Da der Anteil von KMU an den Bietern mathematisch nur berechnet werden kann, wenn mindestens ein Gebot vorliegt, wurde die Stichprobe für dieses Modell auf erfolgreiche Ausschreibungen mit einer Bieteranzahl >0 beschränkt.
+Da der Anteil der KMU an den Bietern mathematisch nur berechnet werden kann, wenn mindestens ein Gebot vorliegt, wurde die Stichprobe für dieses Modell auf erfolgreiche Ausschreibungen mit einer Bieteranzahl > 0 beschränkt.
 
 Um die Stabilität der Ergebnisse zu validieren und sicherzustellen, dass die gemessenen Effekte nicht durch Modellspezifikationen oder spezifische Teilstichproben verzerrt sind, wurden zwei gesonderte Robustheitsanalysen durchgeführt.
 
-Zum einen wurde das Modell um die Variable award\_criteria erweitert, um zu prüfen, ob die Unterscheidung zwischen reinen Preiskriterien (niedrigster Preis) und qualitativen Kriterien die Ergebnisse beeinflussen.
+Zum einen wurde das Modell um die Variable award\_criteria erweitert, um zu prüfen, ob die Unterscheidung zwischen reinen Preiskriterien (niedrigster Preis) und qualitativen Kriterien die Ergebnisse beeinflusst.
 
-Da Dienstleistungen mit 77.820 Beobachtungen (52,8\%) den größten Anteil an der Gesamtstichprobe ausmachen, wurde zudem das Modell isoliert für diese Kategorie berechnet.
-Dies dient dazu auszuschließen, dass die gemessenen Effekte lediglich durch strukturelle Besonderheiten von Lieferaufträgen (31,6\%) oder Bauaufträgen (16,5\%) getrieben sind.
+Da Dienstleistungen mit 77.820 Beobachtungen (52,8\%) den größten Anteil an der Gesamtstichprobe ausmachen, wurde zudem das Modell für diese Kategorie isoliert berechnet.
+Dies dient dazu, auszuschließen, dass die gemessenen Effekte lediglich durch strukturelle Besonderheiten von Lieferaufträgen (31,6\%) oder Bauaufträgen (16,5\%) getrieben sind.
 
 
