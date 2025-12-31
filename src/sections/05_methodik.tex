@@ -51,7 +51,7 @@ Im ersten Schritt der Bereinigung wurde die Datumsspalte von einem Textformat in
 Nachfolgend wurden sämtliche Einträge eliminiert, bei denen das Start- oder Enddatum nicht angegeben war, da diese für die Analyse nicht relevant sind.
 Bei einigen Einträgen treten Logikfehler auf, die sich dadurch äußern, dass das Enddatum vor dem Startdatum liegt.
 Auch diese wurden aus den betreffenden Dateien entfernt.
-Anschließend wurde eine Filterung der Einträge vorgenommen, die auch am wettbewerblichen Verfahren teilgenommen haben, um eine Ausschließung von Direktvergaben zu gewährleisten.
+Anschließend wurde eine Filterung der Einträge vorgenommen, die am wettbewerblichen Verfahren teilgenommen haben, um eine Ausschließung von Direktvergaben zu gewährleisten.
 
 Durch die Implementierung dieser Schritte wurde die Datenmenge von 1.547.352 Einträgen (Deutschland: 402.358, Frankreich: 1.097.001, Estland: 47.993) auf 675.400 Einträge reduziert, um eine konsistente und signifikante Stichprobe zu erhalten.
 
@@ -107,24 +107,23 @@ Da dieser Anteil nur berechnet werden kann, wenn mindestens ein Gebot vorliegt, 
 
 Um sicherzustellen, dass der gemessene Effekt tatsächlich auf die Verfahrensdauer zurückzuführen ist und nicht durch Drittfaktoren verzerrt wird, werden mehrere Kontrollvariablen in das Modell aufgenommen.
 
-Auftragswert (tender\_value):
+Die erste Kontrollvariable ist der Auftragswert (tender\_value).
 Der geschätzte Auftragswert gilt als zentraler Indikator für die Attraktivität eines Auftrags.
 Höhere Werte signalisieren größere Gewinnchancen, gehen jedoch oft mit komplexeren Anforderungen einher.
 Ökonomische Variablen wie Auftragswerte weisen typischerweise eine starke Rechtsschiefe (positive Skewness) auf.
 Dies bedeutet, dass die Verteilung nicht symmetrisch ist, sondern eine Häufung bei kleineren Werten aufweist, während wenige extrem hohe Werte („Ausreißer“ nach oben) die Verteilung verzerren.
 In regressionsanalytischen Modellen können solche Extremwerte die Schätzergebnisse unverhältnismäßig stark beeinflussen und die Annahme der Normalverteilung der Residuen verletzen.
-Um diese Schiefe zu korrigieren, wird der Auftragswert logarithmiert ($\ln(\text{Wert})$).
+Um diese Schiefe zu korrigieren, wird der Auftragswert logarithmiert.
 Durch diese Transformation werden die Abstände zwischen großen Werten gestaucht, wodurch sich die Verteilung einer Normalverteilung annähert und robustere Schätzergebnisse ermöglicht werden.
 Zusätzlich wurde die Variable für die Analyse z-standardisiert.
 
-Zeitliche Effekte (year):
+Die zweite Kontrollvariable ist der Zeitliche Effekte (year).
 Der Untersuchungszeitraum von 2014 bis 2022 umfasst ökonomisch und gesellschaftlich volatile Phasen wie etwa die COVID-19-Pandemie oder die Phase erhöhter Inflation.
 Solche makroökonomischen Ereignisse können die allgemeine Bereitschaft von Unternehmen zur Angebotsabgabe beeinflussen, unabhängig von den spezifischen Eigenschaften einer Ausschreibung~\parencite{Vergabestatistik}.
 Um diese zeitlichen Schwankungen statistisch zu isolieren, wird das Jahr der Ausschreibung als kategoriale Variable in das Modell aufgenommen (Time Fixed Effects).
 Dies bewirkt, dass das Modell primär Ausschreibungen innerhalb desselben Jahres miteinander vergleicht.
 Globale Konjunktureffekte, die alle Ausschreibungen eines Jahres gleichermaßen betreffen, werden so konstant gehalten, dass sie den gemessenen Effekt der Verfahrensdauer nicht verzerren.
 
-Verfahrensmerkmale:
 Zusätzlich wird für die Art des Verfahrens (procurement\_method) kontrolliert, da offene Verfahren (open procedure) strukturell eine höhere Anzahl an Bietern zulassen als beschränkte oder verhandlungsbasierte Verfahren.
 Ebenso wird die Art der Leistung (procurement\_category) berücksichtigt (z.B.\ Bauleistung vs.\ Dienstleistung vs.\ Lieferleistung), da sich branchenspezifische Marktstrukturen und Wettbewerbsintensitäten unterscheiden können.
 
@@ -148,7 +147,7 @@ Zum einen gibt es die \enquote{Always-Zero}-Gruppe, wobei es sich um strukturell
 Das betrifft Ausschreibungen, die aufgrund unattraktiver Rahmenbedingungen von Anfang an keine Chance hatten, ein Gebot zu erhalten.
 Für diese Schätzung wird das binäre Logit-Modell verwendet, das die Wahrscheinlichkeit schätzt, dass eine Ausschreibung in diese Gruppe fällt.
 
-Die andere Gruppe ist die \endquote{Count}-Gruppe, die einem Zählprozess entspricht.
+Die andere Gruppe ist die \enquote{Count}-Gruppe, die einem Zählprozess entspricht.
 Diese Gruppe umfasst Ausschreibungen, die grundsätzlich wettbewerbsfähig sind.
 Die Anzahl der Gebote kann hierbei auch Null sein, ist jedoch meist über Null.
 Hierbei erfolgt die Schätzung mithilfe eines Negativ-Binomial-Modells.
