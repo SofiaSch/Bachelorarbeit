@@ -1,7 +1,7 @@
 \newpage
 \section{Ergebnisse}\label{sec:ergebnisse}
 
-Die empirische Analyse der Vergabedaten fördert Muster zutage, die teilweise intuitiv erscheinen, an entscheidenden Stellen jedoch gängigen Annahmen widersprechen.
+Die empirische Analyse der Vergabedaten bringt Muster zutage, die teilweise intuitiv erscheinen, an entscheidenden Stellen jedoch gängigen Annahmen widersprechen.
 Um diese Dynamiken zu verstehen, bildet eine detaillierte Betrachtung der länderspezifischen Ausgangslage das Fundament, auf dem anschließend die statistische Überprüfung der Hypothesen mittels Regressionsmodellen aufbaut.
 
 \subsection{Deskriptive Statistiken}\label{subsec:deskriptive-statistiken}
@@ -9,15 +9,15 @@ Um diese Dynamiken zu verstehen, bildet eine detaillierte Betrachtung der lände
 Die deskriptive Analyse der finalen Stichprobe ($N=150.140$) offenbart deutliche strukturelle Unterschiede zwischen den drei untersuchten Ländern.
 Tabelle~\ref{tab:descriptive} fasst die zentralen Kennzahlen zusammen.
 
-Hinsichtlich der unabhängigen Variable, der Verfahrensdauer, zeigt sich, dass Deutschland mit durchschnittlich 42,69 Tagen (Median: 32) die längsten Fristen ansetzt, gefolgt von Estland (Mittelwert: 39,67; Median: 33).
+Hinsichtlich der unabhängigen Variable (der Verfahrensdauer) zeigt sich, dass Deutschland mit durchschnittlich 42,69 Tagen (Median: 32) die längsten Fristen ansetzt, gefolgt von Estland (Mittelwert: 39,67; Median: 33).
 Frankreich weist mit durchschnittlich 38,33 Tagen (Median: 32) die kürzesten Fristen auf, verfügt jedoch über eine geringere Standardabweichung (32,53) als Deutschland (46,79).
 
 Auffällig ist der hohe Anteil an Ausschreibungen ohne Gebotsabgabe (Zero-Inflation).
-In Frankreich erhielten 96,21\,\% der Ausschreibungen kein valides Gebot, in Estland 78,94\,\% und in Deutschland 71,96\,\%.
+In Frankreich erhielten 96,21\% der Ausschreibungen kein gültiges Gebot, in Estland 78,94\% und in Deutschland 71,96\%.
 Dies unterstreicht die Notwendigkeit des Zero-Inflated-Modells.
-Bei den erfolgreichen Ausschreibungen (Gebote $>0$) ist der Wettbewerb in Deutschland am intensivsten (Mittelwert: 1,13 Gebote), während Frankreich (0,13) und Estland (0,65) deutlich niedriger liegen.
+Bei den erfolgreichen Ausschreibungen (Gebote $>0$) ist der Wettbewerb in Deutschland am intensivsten (Mittelwert: 1,13 Gebote), während Frankreich (Mittelwert: 0,13) und Estland (Mittelwert: 0,65) deutlich niedriger liegen.
 
-Der Anteil der KMU an den Bietern ist in Estland mit durchschnittlich 87\,\% am höchsten, gefolgt von Deutschland (64\,\%) und Frankreich (29\,\%).
+Der Anteil der KMU an den Bietern ist in Estland mit durchschnittlich 87\% am höchsten, gefolgt von Deutschland (64\%) und Frankreich (29\%).
 
 \begin{table}[htbp]
     \centering
@@ -33,7 +33,7 @@ Der Anteil der KMU an den Bietern ist in Estland mit durchschnittlich 87\,\% am 
         \midrule
         \textit{Wettbewerb (Anzahl Gebote)} & & & \\
         Mittelwert (SD) & 0,65 (1,62) & 0,13 (1,15) & 1,13 (3,14) \\
-        Anteil ohne Gebote & 78,94\,\% & 96,21\,\% & 71,96\,\% \\
+        Anteil ohne Gebote & 78,94\% & 96,21\% & 71,96\% \\
         \midrule
         \textit{KMU-Anteil (wenn Gebote $>0$)} & & & \\
         Mittelwert (SD) & 0,87 (0,28) & 0,29 (0,43) & 0,64 (0,45) \\
@@ -41,12 +41,12 @@ Der Anteil der KMU an den Bietern ist in Estland mit durchschnittlich 87\,\% am 
         \textit{Auftragswert (Median in \euro)} & 520.000 & 560.000 & 505.530 \\
         \bottomrule
     \end{tabular*}
-    \vspace{0.1cm}
-    \parbox{\textwidth}{\footnotesize{\textit{Anmerkung:} SD = Standardabweichung. Datenbasis OpenTender 2014--2022. Werte für KMU-Anteil basieren nur auf Ausschreibungen mit mindestens einem Gebot.}}
+    \vspace{0,1 cm}
+    \parbox{\textwidth}{\footnotesize{\textit{Anmerkung:} SD =Standardabweichung. Datenbasis OpenTender 2014--2022. Werte für den KMU-Anteil basieren ausschließlich auf Ausschreibungen mit mindestens einem Gebot.}}
 \end{table}
 
 Zur weiteren Veranschaulichung der zentralen unabhängigen Variable zeigt Abbildung~\ref{fig:boxplot_dauer} die Verteilung der Fristen in den drei Ländern.
-Die Boxplots verdeutlichen, dass die Kernverteilung (Median und Interquartilsabstand) in allen Ländern ähnlich gelagert ist, Deutschland jedoch eine tendenziell größere Streuung und mehr Ausreißer im oberen Bereich aufweist.
+Die Boxplots verdeutlichen, dass die Kernverteilung (Median und Interquartilsabstand) in allen Ländern ähnlich gelagert ist, Deutschland jedoch eine tendenziell größere Streuung sowie mehr Ausreißer im oberen Bereich aufweist.
 
 \begin{figure}[H]
     \centering
@@ -60,7 +60,8 @@ Die Boxplots verdeutlichen, dass die Kernverteilung (Median und Interquartilsabs
 \subsection{Hypothesentests}\label{subsec:hypothesentests}
 
 \subsubsection{Einfluss der Verfahrensdauer auf die Wettbewerbsintensität}
-Zur Überprüfung von Hypothese 1 (H1) und Hypothese 3 (H3) wurde ein Zero-Inflated Negative Binomial (ZINB) Modell berechnet.
+
+Zur Überprüfung von Hypothese 1 (H1) und Hypothese 3 (H3) wurde ein Zero-Inflated Negative Binomial (ZINB) Modell eingesetzt.
 Die Ergebnisse sind in Tabelle \ref{tab:zinb} dargestellt.
 
 \begin{table}[htbp]
@@ -96,9 +97,9 @@ Die Ergebnisse sind in Tabelle \ref{tab:zinb} dargestellt.
     \parbox{\textwidth}{\footnotesize{\textit{Anmerkung:} Referenzkategorie für Land ist Estland. Dauer und Wert sind z-standardisiert.\\$^{*} p < 0.05, ^{**} p < 0.01, ^{***} p < 0.001 $.}}
 \end{table}
 
-Die statistischen Ergebnisse aus Tabelle~\ref{tab:zinb} lassen sich grafisch verdeutlichen.
+Die statistischen Ergebnisse aus Tabelle~\ref{tab:zinb} lassen sich grafisch darstellen.
 Abbildung~\ref{fig:interaction_wettbewerb} zeigt die vorhergesagten Werte (Predicted Margins) für die Anzahl der Gebote in Abhängigkeit von der Verfahrensdauer.
-Es wird deutlich, dass die Kurve für Estland nahezu flach verläuft, was den nicht-signifikanten Effekt widerspiegelt.
+Es wird deutlich, dass die Kurve für Estland nahezu flach verläuft, was den nicht signifikanten Effekt widerspiegelt.
 Im Gegensatz dazu zeigen Deutschland und Frankreich eine sichtbare positive Steigung: Längere Verfahren gehen in diesen Ländern mit einer höheren Anzahl an Geboten einher.
 
 \begin{figure}[H]
@@ -110,9 +111,9 @@ Im Gegensatz dazu zeigen Deutschland und Frankreich eine sichtbare positive Stei
     \parbox{0.75\textwidth}{\footnotesize{\textit{Quelle:} Eigene Darstellung basierend auf ZINB-Modellschätzung (Python).}}
 \end{figure}
 
-Aus der Analyse lässt sich folgendes erschließen.
-Für Estland (Referenz) ist der Effekt der Verfahrensdauer negativ ($-0,026$), aber statistisch nicht signifikant ($p=0,681$).
-Es besteht also kein nachweisbarer Zusammenhang zwischen Dauer und Anzahl der Gebote.
+Aus der Analyse lässt sich Folgendes erschließen.
+Für Estland (Referenz) ist der Effekt der Verfahrensdauer negativ ($-0,026$), jedoch statistisch nicht signifikant ($p=0,681$).
+Es besteht also kein nachweisbarer Zusammenhang zwischen der Dauer und der Anzahl der Gebote.
 Für Frankreich zeigt sich ein signifikant positiver Interaktionseffekt ($0,148^{*}$).
 Der Gesamteffekt ist somit positiv: Längere Verfahrensdauern führen hier tendenziell zu mehr Geboten.
 Für Deutschland ist der Interaktionseffekt ebenfalls positiv ($0,105$), verfehlt jedoch knapp das 5\%-Signifikanzniveau ($p=0,100$).
@@ -122,7 +123,8 @@ Hypothese 1 (länger = weniger Gebote) muss somit abgelehnt werden.
 In den großen Volkswirtschaften scheint eine längere Frist eher als Chance für komplexere Angebote genutzt zu werden, statt abzuschrecken.
 
 \subsubsection{Einfluss der Verfahrensdauer auf die KMU-Beteiligung}
-Zur Überprüfung von Hypothese 2 (H2) wurde ein Fractional Logit Modell (GLM) für die Subgruppe der erfolgreichen Ausschreibungen ($N=19.760$) berechnet (siehe Tabelle~\ref{tab:glm}).
+
+Zur Überprüfung von Hypothese 2 (H2) wurde ein Fractional-Logit-Modell (GLM) für die Subgruppe der erfolgreichen Ausschreibungen ($N=19.760$) berechnet (siehe Tabelle~\ref{tab:glm}).
 
 \begin{table}[htbp]
     \centering
@@ -156,9 +158,9 @@ Zur Überprüfung von Hypothese 2 (H2) wurde ein Fractional Logit Modell (GLM) f
 \end{table}
 
 Die in Tabelle~\ref{tab:glm} ausgewiesenen Interaktionseffekte werden in Abbildung~\ref{fig:interaction_kmu} visualisiert.
-Die Grafik illustriert die vorhergesagte Wahrscheinlichkeit für den KMU-Anteil an den Bietern.
+Die Grafik illustriert die vorhergesagte Wahrscheinlichkeit des KMU-Anteils unter an den Bietern.
 Hier zeigt sich der drastische Unterschied zwischen den Systemen: Während die Linien für Deutschland und Frankreich stabil verlaufen, fällt die Kurve für Estland steil ab.
-Dies verdeutlicht visuell, dass Zeitverzögerungen im estnischen System eine massive Barriere speziell für kleine und mittlere Unternehmen darstellen.
+Dies verdeutlicht visuell, dass Zeitverzögerungen im estnischen System eine massive Barriere für kleine und mittlere Unternehmen darstellen.
 
 \begin{figure}[H]
     \centering
@@ -169,7 +171,7 @@ Dies verdeutlicht visuell, dass Zeitverzögerungen im estnischen System eine mas
     \footnotesize{\textit{Quelle:} Eigene Darstellung basierend auf Fractional-Logit-Modellschätzung (Python).}
 \end{figure}
 
-Die Ergebnisse stützen Hypothese 2 differenziert nach Ländern.
+Die Ergebnisse stützen Hypothese 2, die nach Ländern differenziert wird.
 
 In Estland zeigt sich ein hochsignifikanter negativer Effekt ($\beta = -0,277, p < 0,001$).
 Je länger das Verfahren dauert, desto geringer ist der Anteil der KMU an den Bietern.
@@ -181,4 +183,4 @@ Zusammenfassend bestätigt sich H2 nur für das hocheffiziente System Estlands, 
 Auch Hypothese 3 (Deutschland reagiert am stärksten negativ) muss daher abgelehnt werden.
 Tatsächlich reagiert Estland am sensibelsten.
 
-Diese unerwarteten Befunde, insbesondere die gegensätzlichen Effekte in Estland im Vergleich zu den großen Volkswirtschaften, werfen Fragen zur Wahrnehmung von Verfahrensdauer in unterschiedlichen Verwaltungssystemen auf, die im folgenden Kapitel diskutiert werden.
+Diese unerwarteten Befunde, insbesondere die gegensätzlichen Effekte in Estland im Vergleich zu den großen Volkswirtschaften, werfen Fragen zur Wahrnehmung der Verfahrensdauer in unterschiedlichen Verwaltungssystemen auf, die im folgenden Kapitel diskutiert werden.
