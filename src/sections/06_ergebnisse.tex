@@ -1,8 +1,8 @@
 \newpage
 \section{Ergebnisse}\label{sec:ergebnisse}
 
-Die empirische Analyse der Vergabedaten bringt Muster zutage, die teilweise intuitiv erscheinen, an entscheidenden Stellen jedoch gängigen Annahmen widersprechen.
-Um diese Dynamiken zu verstehen, bildet eine detaillierte Betrachtung der länderspezifischen Ausgangslage das Fundament, auf dem anschließend die statistische Überprüfung der Hypothesen mittels Regressionsmodellen aufbaut.
+Die Auswertung der Vergabedaten liefert Ergebnisse, die teilweise von den theoretischen Erwartungen abweichen.
+Um diese Befunde einordnen zu können, werden im Folgenden zunächst die deskriptiven länderspezifischen Statistiken betrachtet.
 
 \subsection{Deskriptive Statistiken}\label{subsec:deskriptive-statistiken}
 
@@ -15,7 +15,7 @@ Frankreich weist mit durchschnittlich 38,33 Tagen (Median: 32) die kürzesten Fr
 Auffällig ist der hohe Anteil an Ausschreibungen ohne Gebotsabgabe (Zero-Inflation).
 In Frankreich erhielten 96,21\% der Ausschreibungen kein gültiges Gebot, in Estland 78,94\% und in Deutschland 71,96\%.
 Dies unterstreicht die Notwendigkeit des Zero-Inflated-Modells.
-Bei den erfolgreichen Ausschreibungen (Gebote $>0$) ist der Wettbewerb in Deutschland am intensivsten (Mittelwert: 1,13 Gebote), während Frankreich (Mittelwert: 0,13) und Estland (Mittelwert: 0,65) deutlich niedriger liegen.
+Über die gesamte Stichprobe hinweg ist der Wettbewerb in Deutschland am intensivsten (Mittelwert: 1,13 Gebote), während Frankreich (Mittelwert: 0,13) und Estland (Mittelwert: 0,65) deutlich niedriger liegen.
 
 Der Anteil der KMU an den Bietern ist in Estland mit durchschnittlich 87\% am höchsten, gefolgt von Deutschland (64\%) und Frankreich (29\%).
 
@@ -158,7 +158,7 @@ Zur Überprüfung von Hypothese 2 (H2) wurde ein Fractional-Logit-Modell (GLM) f
 \end{table}
 
 Die in Tabelle~\ref{tab:glm} ausgewiesenen Interaktionseffekte werden in Abbildung~\ref{fig:interaction_kmu} visualisiert.
-Die Grafik illustriert die vorhergesagte Wahrscheinlichkeit des KMU-Anteils unter an den Bietern.
+Die Grafik illustriert die vorhergesagte Wahrscheinlichkeit des KMU-Anteils unter den Bietern.
 Hier zeigt sich der drastische Unterschied zwischen den Systemen: Während die Linien für Deutschland und Frankreich stabil verlaufen, fällt die Kurve für Estland steil ab.
 Dies verdeutlicht visuell, dass Zeitverzögerungen im estnischen System eine massive Barriere für kleine und mittlere Unternehmen darstellen.
 
@@ -172,7 +172,6 @@ Dies verdeutlicht visuell, dass Zeitverzögerungen im estnischen System eine mas
 \end{figure}
 
 Die Ergebnisse stützen Hypothese 2, die nach Ländern differenziert wird.
-
 In Estland zeigt sich ein hochsignifikanter negativer Effekt ($\beta = -0,277, p < 0,001$).
 Je länger das Verfahren dauert, desto geringer ist der Anteil der KMU an den Bietern.
 Hier bestätigt sich die Annahme, dass Zeitverzögerungen als Ressourcenbelastung für kleinere Unternehmen wirken.
