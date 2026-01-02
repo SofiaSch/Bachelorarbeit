@@ -3,7 +3,7 @@
 
 Um die Hypothesen zu überprüfen und damit die Forschungsfrage zu beantworten, führen wir ein quantitatives, komparatives Ex post facto-Forschungsdesign durch.
 Die Hypothese wird mittels statistischer Regressionsanalysen anhand numerischer Daten getestet und ist somit quantitativ.
-Der gezielte Vergleich der drei Länder Deutschland, Frankreich und Estland nach dem \endquote{Most Different Systems Design} (MDSD) stellt eine komparative Analyse dar.
+Der gezielte Vergleich der drei Länder Deutschland, Frankreich und Estland nach dem \enquote{Most Different Systems Design} (MDSD) stellt eine komparative Analyse dar.
 Zudem beziehen wir uns in der Analyse auf bereits vergangene Vergabeverfahren, die nicht experimentell manipuliert wurden, was das Design als Ex-post-facto-Ansatz ausweist.
 
 \subsection{Datensatz und Stichprobe}\label{subsec:datensatz-und-stichprobe}
@@ -17,17 +17,17 @@ Es handelt sich um einen Sekundärdatensatz.
 Die Daten werden unter anderem im JSON-Format bereitgestellt.
 Der Untersuchungszeitraum ist auf die Jahre 2014 bis 2022 festgelegt.
 
-2014 wurde ein großer Schritt im europäischen Vergaberechts gemacht, da neue EU-Vergaberichtlinien verabschiedet wurden~\parencite{Oeffentliche_Auftraege_DE}.
+2014 wurde ein großer Schritt im europäischen Vergaberechts gemacht, da neue EU-Vergabe\-richt\-linien verabschiedet wurden~\parencite{Oeffentliche_Auftraege_DE}.
 Diese zielen auf die Vereinfachung der Verfahren und die Stärkung der KMU-Beteiligung ab~\parencite{EU2014RL24}.
 Da der Datensatz primär auf Veröffentlichungen im europäischen Amtsblatt (Tenders Electronic Daily) basiert, deckt die Analyse überwiegend oberschwellige Vergabeverfahren ab.
 Diese unterliegen den harmonisierten EU-Regelungen, was eine hohe Vergleichbarkeit der rechtlichen Rahmenbedingungen zwischen den Ländern gewährleistet.
 
-Die Wahl für das Jahr 2022 beruht auf der Datenverfügbarkeit, da die neuesten Daten für Frankreich aus dem Jahre 2022 stammen.
-Die Analyse dieses Zeitraums ermöglicht eine Analyse innerhalb des aktuellen rechtlichen Rahmens auf einer gemeinsamen Grundlage.
+Die Wahl für das Jahr 2022 beruht auf der Datenverfügbarkeit, da die neuesten Daten für Frankreich aus diesem Jahr stammen.
+Die Betrachtung dieses Zeitraumes ermöglicht eine Analyse innerhalb des aktuellen rechtlichen Rahmens auf einer gemeinsamen Grundlage.
 
 \subsubsection{Länderauswahl}
 
-Die Auswahl der Länder basiert auf dem \endquote{Most Different Systems Design} (MDSD).
+Die Auswahl der Länder basiert auf dem \enquote{Most Different Systems Design} (MDSD).
 Ziel ist es, drei Länder innerhalb des gemeinsamen rechtlichen Rahmens der EU mit unterschiedlichen Verwaltungsstrukturen zu vergleichen.
 
 Deutschland gilt als Vorreiter bei der Umsetzung der neuen EU-Vergaberichtlinien und ist zudem hochgradig föderalistisch und regulierungsintensiv~\parencite{innovation_policy_PP}.
@@ -44,8 +44,8 @@ Durch den gezielten Vergleich dieser unterschiedlichen Systeme wird es möglich,
 
 Die Analyse der Daten erfordert zunächst deren Umwandlung in ein geeignetes Format, das die Datenaufbereitung für die nachfolgende Analyse erleichtert.
 Mittels eines Python-Skripts wurden pro Land eine Aufbereitung aller Einträge vorgenommen, wobei ausschließlich die für die Forschungsfrage relevanten Variablen extrahiert wurden.
-Im Rahmen der weiteren Aufbereitung wurden die Datenkonvertierung in eine CSV-Datei pro Land vorgenommen.
-Daraufhin folgt die Bereinigung.
+Im Rahmen der weiteren Aufbereitung wurde die Datenkonvertierung in eine CSV-Datei pro Land vorgenommen.
+Daraufhin folgte die Bereinigung.
 
 Im ersten Schritt der Bereinigung wurde die Datumsspalte von einem Textformat in ein Datumsformat konvertiert.
 Nachfolgend wurden sämtliche Einträge eliminiert, bei denen das Start- oder Enddatum nicht angegeben war, da diese für die Analyse nicht relevant sind.
@@ -130,9 +130,9 @@ Ebenso wird die Art der Leistung (procurement\_category) berücksichtigt (z.B.\ 
 
 \subsection{Statistische Auswertungsmethode}\label{subsec:statistische-auswertungsmethode}
 
-Die Datenaufbereitung und die statistische Analyse wurden in der Programmiersprache Python (Version 3.12) durchgeführt.
+Die Datenaufbereitung und die statistische Analyse wurden in der Programmiersprache Python durchgeführt.\footnote{ Verwendet wurde die Python-Version 3.12 sowie die Bibliotheken pandas (Vers.~2.2.3), matplotlib (Vers.~3.10.0), seaborn (Vers.~0.13.2) und statsmodels (Vers.~0.14.4).}
 Für die deskriptive Statistik und die Datenmanipulation wurde die Bibliothek pandas verwendet, während die Schätzung der Regressionsmodelle mittels statsmodels erfolgte.
-Die Visualisierung der Ergebnisse wurde mit Matplotlib und Seaborn erstellt.
+Die Visualisierung der Ergebnisse wurde mit matplotlib und seaborn erstellt.
 
 Eine explorative Analyse der abhängigen Variable \enquote{Anzahl der Gebote} (total\_bids) zeigt zwei statistische Besonderheiten, die gegen die Verwendung linearer oder Poisson-Modelle sprechen.
 Zum einen weist der Datensatz eine massive Überrepräsentation von Nullwerten auf (ca.\ 84\% aller Ausschreibungen der bereinigten Rohdaten erhielten kein Gebot).
@@ -157,7 +157,7 @@ Durch diese simultane Schätzung beider Prozesse können verzerrte Koeffizienten
 Die zweite abhängige Variable, der KMU-Anteil (sme\_share), stellt eine proportionale Größe dar, die definitionsgemäß auf das Intervall zwischen 0 und 1 begrenzt ist.
 Die Verwendung einer klassischen linearen Regression (OLS) wäre hier methodisch problematisch, da sie Vorhersagen außerhalb dieses logischen Wertebereichs (z.B.\ < 0 oder > 1) erzeugen könnte und die spezifische Varianzstruktur von Anteilsdaten ignoriert.
 Stattdessen wurde ein Fractional-Logit-Modell angewendet.
-Hierbei handelt es sich um ein generalisiertes lineares Modell (GLM) mit einer Binomial-Verteilung und einer Logit-Link-Funktion, basierend auf dem methodischen Ansatz von Papke und Wooldridge (1996)~\parencite{fractional_response}.
+Hierbei handelt es sich um ein generalisiertes lineares Modell (GLM) mit einer Binomial-Verteilung und einer Logit-Link-Funktion, basierend auf dem methodischen Ansatz von Papke und Wooldridge~\parencite{fractional_response}.
 Dieses Verfahren eignet sich explizit für abhängige Variablen, die Anteile darstellen, auch wenn sie an den Rändern (0 und 1) gehäuft auftreten.
 Zur Korrektur potenzieller Heteroskedastizität wurden robuste Standardfehler (HC0) berechnet.
 
