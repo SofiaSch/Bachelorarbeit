@@ -16,8 +16,8 @@
 \doublespacing % 2.0-facher Zeilenabstand
 
 % --- PAKETE FÜR INHALTE ---
-\usepackage{graphicx}       % Für Bilder
-\usepackage{booktabs}       % Für schönere Tabellen (wichtig für APA)
+\usepackage{graphicx}
+\usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{xcolor}
@@ -27,27 +27,27 @@
 \usepackage{xurl}
 \usepackage{acronym}
 
-% --- \tabcite Befehl ---
-\definecolor{meingrau}{gray}{0.6} % Definiert ein mittleres Grau
+
+\definecolor{meingrau}{gray}{0.6}
 
 \usepackage{caption}
 \captionsetup[table]{
     format=plain,
-    singlelinecheck=false,      % Erzwingt Links-Bündigkeit auch bei kurzen Titeln
-    justification=raggedright,  % Links ausgerichtet
-    labelsep=newline,           % Zeilenumbruch nach "Tabelle 1"
-    font={stretch=1},           % Zeilenabstand normal in der Caption
-    labelfont=bf,               % "Tabelle 1" fett
-    textfont=it                 % Titeltext kursiv
+    singlelinecheck=false,
+    justification=raggedright,
+    labelsep=newline,
+    font={stretch=1},
+    labelfont=bf,
+    textfont=it
 }
 
-% \tabcite: Erzeugt Zeilenumbruch, setzt Farbe und Link-Farbe auf Grau
+
 \newcommand{\tabcite}[1]{%
     \newline
     {%
-        \footnotesize           % Schriftgröße klein
-        \color{meingrau}        % Färbt Klammern und Kommas
-        \hypersetup{citecolor=meingrau} % WICHTIG: Färbt den Link (die Jahreszahl)
+        \footnotesize
+        \color{meingrau}
+        \hypersetup{citecolor=meingrau}
         \parencite{#1}%
     }%
 }
@@ -57,10 +57,10 @@
     backend=biber,
     style=apa,
     sorting=nyt
-]{biblatex}                 % FÜR ZITATIONEN UND LITERATURVERZEICHNIS (EINZIGES PAKET!)
+]{biblatex}
 \usepackage{csquotes}
 
-\addbibresource{bibliothek.bib} % Verknüpfung zur Literaturdatenbank
+\addbibresource{bibliothek.bib}
 \definecolor{TUMBlau}{HTML}{005293}
 
 
@@ -92,7 +92,6 @@
 \newpage
 
 % --- HAUPTTEIL DER ARBEIT ---
-% Die Struktur hier folgt der idealen Gliederung für empirische Arbeiten
 \input{sections/02_einleitung}
 \input{sections/03_theorie}
 \input{sections/04_hypothesen}
@@ -116,6 +115,5 @@
 % --- EIDESSTATTLICHE ERKLÄRUNG ---
 \newpage
 \input{sections/11_erklaerung}
-% ...
 
 \end{document}
