@@ -1,8 +1,45 @@
 % In sections/09_verzeichnisse.tex
-\newpage
-\listoffigures
-\addcontentsline{toc}{section}{Abbildungsverzeichnis}
 
+% --- Abbildungsverzeichnis ---
 \newpage
-\listoftables
+\phantomsection % Sorgt für korrekten Sprunganker bei Hyperlinks
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
+
+% --- Tabellenverzeichnis ---
+\newpage
+\phantomsection
 \addcontentsline{toc}{section}{Tabellenverzeichnis}
+\listoftables
+
+% --- Abkürzungsverzeichnis ---
+\newpage
+\section*{Abkürzungsverzeichnis}
+\phantomsection
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+
+\begin{acronym}[UGAP]
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \acro{ABZ}{Auftragsberatungszentrum Bayern e. V.}
+    \acro{BIP}{Bruttoinlandsprodukt}
+    \acro{bpb}{Bundeszentrale für politische Bildung}
+    \acro{DESI}{Digital Economy and Society Index}
+    \acro{DTAD}{Deutscher Auftragsdienst}
+    \acro{e-ID}{Electronic Identity (Nationale digitale ID)}
+    \acro{EU}{Europäische Union}
+    \acro{GLM}{Generalized Linear Model}
+    \acro{GTI}{Government Transparency Institute}
+    \acro{GWB}{Gesetz gegen Wettbewerbsbeschränkungen}
+    \acro{HC0}{Heteroskedasticity-Consistent Standard Errors}
+    \acro{JSON}{JavaScript Object Notation}
+    \acro{KMU}{Kleine und mittlere Unternehmen}
+    \acro{M}{Mittelwert}
+    \acro{MDSD}{Most Different Systems Design}
+    \acro{OECD}{Organisation for Economic Co-operation and Development}
+    \acro{OLS}{Ordinary Least Squares}
+    \acro{SD}{Standard Deviation (Standardabweichung)}
+    \acro{UGAP}{Union des groupements d'achats publics}
+    \acro{ZINB}{Zero-Inflated Negative Binomial}
+    \acro{ZIP}{Zero-Inflated Poisson}
+\end{acronym}

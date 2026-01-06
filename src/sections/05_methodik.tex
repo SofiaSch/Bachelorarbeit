@@ -1,12 +1,15 @@
 \newpage
 \section{Methodik}\label{sec:methodik}
 
-Um die Hypothesen zu überprüfen und damit die Forschungsfrage zu beantworten, führen wir ein quantitatives, komparatives Ex post facto-Forschungsdesign durch.
-Die Hypothese wird mittels statistischer Regressionsanalysen anhand numerischer Daten getestet und ist somit quantitativ.
-Der gezielte Vergleich der drei Länder Deutschland, Frankreich und Estland nach dem \enquote{Most Different Systems Design} (MDSD) stellt eine komparative Analyse dar.
-Zudem beziehen wir uns in der Analyse auf bereits vergangene Vergabeverfahren, die nicht experimentell manipuliert wurden, was das Design als Ex-post-facto-Ansatz ausweist.
+Zur Überprüfung der Hypothesen und Beantwortung der Forschungsfrage dient ein quantitatives Forschungsdesign.
+Die methodische Umsetzung erfolgt mittels statistischer Regressionsanalysen auf Basis numerischer Daten.
+Durch den gezielten Ländervergleich (Deutschland, Frankreich, Estland) nach dem \enquote{Most Different Systems Design} (MDSD) erhält die Arbeit eine komparative Ausrichtung.
+Da die Analyse dabei ausschließlich auf Daten bereits abgeschlossener Vergabeverfahren basiert, die durch die Untersuchung nicht experimentell manipuliert wurden, lässt sich der Ansatz als Ex-post-facto-Design klassifizieren.
 
 \subsection{Datensatz und Stichprobe}\label{subsec:datensatz-und-stichprobe}
+
+Für die vergleichende Untersuchung der Vergabepraxis in Deutschland, Frankreich und Estland ist eine konsistente und harmonisierte Datengrundlage erforderlich.
+Diese bildet das empirische Fundament, um die theoretischen Annahmen zur Verfahrensdauer und KMU-Beteiligung statistisch zu überprüfen.
 
 \subsubsection{Datenquelle und -gewinnung}
 
@@ -14,7 +17,7 @@ Die Daten, die für die empirische Analyse genutzt werden, stammen aus der OpenT
 In der Datenbank befinden sich Daten zu insgesamt 35 Gerichtsbarkeiten, davon 27 Mitgliedstaaten der Europäischen Union~\parencite{GTI2024}.
 Es handelt sich um einen Sekundärdatensatz.
 
-Die Daten werden unter anderem im JSON-Format bereitgestellt.
+Die Daten werden unter anderem im JSON-Format\footnote{JSON (JavaScript Object Notation) ist ein kompaktes, textbasiertes Datenformat, das den einfachen Datenaustausch zwischen Anwendungen ermöglicht und sowohl für Menschen als auch für Maschinen lesbar ist.} bereitgestellt.
 Der Untersuchungszeitraum ist auf die Jahre 2014 bis 2022 festgelegt.
 
 2014 wurde ein großer Schritt im europäischen Vergaberechts gemacht, da neue EU-Vergabe\-richt\-linien verabschiedet wurden~\parencite{Oeffentliche_Auftraege_DE}.
@@ -32,8 +35,7 @@ Ziel ist es, drei Länder innerhalb des gemeinsamen rechtlichen Rahmens der EU m
 
 Deutschland gilt als Vorreiter bei der Umsetzung der neuen EU-Vergaberichtlinien und ist zudem hochgradig föderalistisch und regulierungsintensiv~\parencite{innovation_policy_PP}.
 Die dezentrale Vergabe erfolgt auf Bundes-, Landes- und Kommunalebene, was zu einer heterogenen Verwaltungslandschaft führt~\parencite{DE_FOER}.
-
-Frankreich dient als Gegensatz zu einem historisch zentralen Staat~\parencite{FR_Zentr}.
+Frankreich dient in dieser Untersuchung als historisches Beispiel für einen zentralistisch organisierten Staat~\parencite{FR_Zentr}.
 Die Vergaben sind größtenteils landesweit standardisiert.
 Als drittes Land ist Estland deutlich kleiner als die beiden wirtschaftlich starken Länder Deutschland und Frankreich.
 Dennoch gilt Estland als Vorreiter in der Digitalisierung in Europa~\parencite{EST_Digital}.
@@ -55,7 +57,7 @@ Anschließend wurde eine Filterung der Einträge vorgenommen, die am wettbewerbl
 
 Durch die Implementierung dieser Schritte wurde die Datenmenge von 1.547.352 Einträgen (Deutschland: 402.358, Frankreich: 1.097.001, Estland: 47.993) auf 675.400 Einträge reduziert, um eine konsistente und signifikante Stichprobe zu erhalten.
 
-Für die Durchführung der multivariaten Regressionsanalyse ist eine weitere Einschränkung der Stichprobe auf vollständige dokumentierte Fälle erforderlich.
+Für die Durchführung der multivariaten Regressionsanalyse ist eine weitere Einschränkung der Stichprobe auf vollständig dokumentierte Fälle erforderlich.
 Den größten Anteil am Datenverlust verursachen fehlende Angaben zum Auftragswert (tender\_value) und zur Verfahrensart (procurement\_method).
 Dies resultiert in einer finalen Stichprobe von 150.140 vollständig beobachteten Vergabeverfahren, die die Grundlage für die nachfolgenden Modellschätzungen bildet.
 
@@ -117,7 +119,7 @@ Um diese Schiefe zu korrigieren, wird der Auftragswert logarithmiert.
 Durch diese Transformation werden die Abstände zwischen großen Werten gestaucht, wodurch sich die Verteilung einer Normalverteilung annähert und robustere Schätzergebnisse ermöglicht werden.
 Zusätzlich wurde die Variable für die Analyse z-standardisiert.
 
-Die zweite Kontrollvariable ist der Zeitliche Effekte (year).
+Die zweite Kontrollvariable ist der zeitliche Effekt (year).
 Der Untersuchungszeitraum von 2014 bis 2022 umfasst ökonomisch und gesellschaftlich volatile Phasen wie etwa die COVID-19-Pandemie oder die Phase erhöhter Inflation.
 Solche makroökonomischen Ereignisse können die allgemeine Bereitschaft von Unternehmen zur Angebotsabgabe beeinflussen, unabhängig von den spezifischen Eigenschaften einer Ausschreibung~\parencite{Vergabestatistik}.
 Um diese zeitlichen Schwankungen statistisch zu isolieren, wird das Jahr der Ausschreibung als kategoriale Variable in das Modell aufgenommen (Time Fixed Effects).
@@ -137,7 +139,9 @@ Die Visualisierung der Ergebnisse wurde mit matplotlib und seaborn erstellt.
 Eine explorative Analyse der abhängigen Variable \enquote{Anzahl der Gebote} (total\_bids) zeigt zwei statistische Besonderheiten, die gegen die Verwendung linearer oder Poisson-Modelle sprechen.
 Zum einen weist der Datensatz eine massive Überrepräsentation von Nullwerten auf (ca.\ 84\% aller Ausschreibungen der bereinigten Rohdaten erhielten kein Gebot).
 Dieser Effekt wird Zero-Inflation genannt.
-Zum anderen übersteigt die Varianz der Anzahl der Gebote deutlich den Mittelwert, was eine Überdispersion zur Folge hat.
+Zum anderen übersteigt die Varianz der Anzahl der Gebote deutlich den Mittelwert.
+Dies verletzt die Grundannahme der Poisson-Verteilung, bei der Erwartungswert und Varianz identisch sein müssen.
+Das vorliegende Phänomen der sogenannten Überdispersion deutet darauf hin, dass die Daten eine größere Streuung aufweisen, als durch ein einfaches Poisson-Modell abgebildet werden kann, weshalb die Wahl auf das flexiblere Negative Binomial-Modell fiel~\parencite{cameron_trivedi_2013}.
 
 Um diese beiden Effekte in der Analyse zu berücksichtigen, wurde ein Zero-Inflated Negative Binomial (ZINB) Regressionsmodell gewählt.
 Dieses Modell basiert auf der von Lambert (1992) entwickelten Theorie der Zero-Inflated Poisson (ZIP) Modelle, die von Greene (1994) um die Negativ-Binomial-Verteilung erweitert wurde, um zusätzlich zur Inflation auch die Überdispersion zu modellieren~\parencite{ZIP, Excess_Zeros}.
@@ -149,7 +153,7 @@ Für diese Schätzung wird das binäre Logit-Modell verwendet, das die Wahrschei
 
 Die andere Gruppe ist die \enquote{Count}-Gruppe, die einem Zählprozess entspricht.
 Diese Gruppe umfasst Ausschreibungen, die grundsätzlich wettbewerbsfähig sind.
-Die Anzahl der Gebote kann hierbei auch Null sein, ist jedoch meist über Null.
+Die Anzahl der Gebote kann hierbei auch null sein, ist jedoch meist über null.
 Hierbei erfolgt die Schätzung mithilfe eines Negativ-Binomial-Modells.
 
 Durch diese simultane Schätzung beider Prozesse können verzerrte Koeffizienten, die bei herkömmlichen Modellen durch die Vermischung beider Gruppen entstehen würden, korrigiert werden~\parencite{NBR}.
@@ -159,7 +163,7 @@ Die Verwendung einer klassischen linearen Regression (OLS) wäre hier methodisch
 Stattdessen wurde ein Fractional-Logit-Modell angewendet.
 Hierbei handelt es sich um ein generalisiertes lineares Modell (GLM) mit einer Binomial-Verteilung und einer Logit-Link-Funktion, basierend auf dem methodischen Ansatz von Papke und Wooldridge~\parencite{fractional_response}.
 Dieses Verfahren eignet sich explizit für abhängige Variablen, die Anteile darstellen, auch wenn sie an den Rändern (0 und 1) gehäuft auftreten.
-Zur Korrektur potenzieller Heteroskedastizität wurden robuste Standardfehler (HC0) berechnet.
+Zur Korrektur potenzieller Heteroskedastizität (ungleiche Varianz) wurden robuste Standardfehler (HC0) berechnet.
 
 Da der Anteil der KMU an den Bietern mathematisch nur berechnet werden kann, wenn mindestens ein Gebot vorliegt, wurde die Stichprobe für dieses Modell auf erfolgreiche Ausschreibungen mit einer Bieteranzahl > 0 beschränkt.
 
